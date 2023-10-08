@@ -1,0 +1,33 @@
+.her {
+    background: url('../../../public/img/nu-1.webp')  no-repeat center;
+    background-size: cover;
+}
+.boy{
+  background: url('../../../public/img/boyheader.jpg')  no-repeat center;
+  background-size: cover;
+}
+.kid{
+  background: url('../../../public/img/kidheader.jpg')  no-repeat center;
+  background-size: cover;
+}
+
+
+.input:not(:placeholder-shown) ~ .btn{
+    color: black;
+}
+
+.user:hover .signIn{
+  display: flex;
+  opacity: 1;
+  animation: slide-in 0.5s ease-in;
+}
+@keyframes slide-in {
+    0% {
+        opacity: 0;
+      
+    }
+    100% {
+        opacity: 1;
+     
+    }
+  }
