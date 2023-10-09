@@ -1,5 +1,14 @@
 "use client";
-import { Contact, Store, ShoppingCart, User, UserCircle2, LogOut, FolderCog } from "lucide-react";
+import {
+    Contact,
+    Store,
+    ShoppingCart,
+    User,
+    UserCircle2,
+    LogOut,
+    FolderCog,
+    Menu,
+} from "lucide-react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { Button } from "../ui/button";
@@ -10,20 +19,27 @@ import { useSelector } from "react-redux";
 import { NavigationMenuDemo } from "./headernavbar";
 import InputHeader from "./inputheader";
 import style from "./header.module.css";
+import Cart from "../cart/cart";
 function Header() {
     const router = useRouter();
     const user = useSelector((state) => state.auth.user);
+    const order = useSelector((state) => state.order);
     function clearToken() {
         localStorage.clear();
     }
     return (
-        <header className="flex flex-row justify-between items-center fixed z-50 inset-x-0 top-0 px-14 bg-white rounded-b-sm h-14 box-sd ">
-            <div className="font-pacifico">
-                <Link href="/">
-                    <h1 className="text-2xl text-[#6d3f0a] font-bold">DCB24th</h1>
-                </Link>
-            </div>
-            <div className="flex justify-between items-center ">
+        <header className="flex flex-row justify-between items-center fixed z-50 inset-x-0 top-0 px-14 bg-white rounded-b-sm h-14 box-sd  sm:justify-between sm:w-screen sm:px-3 md:w-screen">
+            {/* <div>
+                <Menu />
+            </div> */}
+
+            <Link href="/">
+                <h1 className="font-pacifico text-2xl text-[#6d3f0a] font-bold sm:text-xl">
+                    DCB24th
+                </h1>
+            </Link>
+
+            <div className="flex justify-between items-center sm:hidden md:flex">
                 <NavigationMenuDemo className={style.her} her>
                     <span className="text-base">For Her</span>
                 </NavigationMenuDemo>
@@ -34,36 +50,35 @@ function Header() {
                     <span className="text-base">For Kid</span>
                 </NavigationMenuDemo>
             </div>
-            <div className="flex flex-row items-center">
+            <div className="flex flex-row items-center ">
                 <InputHeader />
-                <div className="flex flex-row items-center font-light">
+                <div className="flex flex-row items-center font-light sm:text-base">
                     {user && user.name ? (
                         <div className="group">
-                            <Button
-                                variant="outline"
-                                className="flex items-center space-x-2 relative"
-                            >
+                            <Button variant="none" className="flex items-center space-x-2 relative">
                                 <UserCircle2 />
-                                <span className="text-base font-semibold">{user.name}</span>
+                                <span className="text-base font-semibold sm:hidden md:hidden">
+                                    {user.name}
+                                </span>
                             </Button>
                             {user.isAdmin === true ? (
-                                <div className="absolute bg-white top-[80%] rounded-md box-shad shadow-lg shadow-indigo-500/40 hidden group-hover:block animate-fade-up animate-once animate-duration-[600ms]">
+                                <div className="absolute bg-white top-[80%] sm:left-[40%] md:left-[73%] rounded-md box-shad shadow-lg shadow-indigo-500/40 hidden group-hover:block animate-fade-up animate-once animate-duration-[600ms]">
                                     <Button
-                                        variant="outline"
+                                        variant="none"
                                         className="py-[15px] px-[20px] flex space-x-2"
                                     >
                                         <User />
                                         <Link href={"/profile"}>Thông tin tài khoản</Link>
                                     </Button>
                                     <Button
-                                        variant="outline"
+                                        variant="none"
                                         className="py-[15px] px-[20px] flex space-x-2"
                                     >
                                         <FolderCog />
                                         <Link href={"/management"}>Quản lý sản phẩm</Link>
                                     </Button>
                                     <Button
-                                        variant="outline"
+                                        variant="none"
                                         className="py-[15px] px-[20px] flex space-x-2"
                                     >
                                         <LogOut />
@@ -73,16 +88,16 @@ function Header() {
                                     </Button>
                                 </div>
                             ) : (
-                                <div className="absolute bg-white top-[80%] rounded-md box-shad shadow-lg shadow-indigo-500/40 hidden group-hover:block animate-fade-up animate-once animate-duration-[1000ms]">
+                                <div className="absolute bg-white top-[80%] sm:left-[40%] md:left-[73%] rounded-md box-shad shadow-lg shadow-indigo-500/40 hidden group-hover:block animate-fade-up animate-once animate-duration-[1000ms]">
                                     <Button
-                                        variant="outline"
+                                        variant="none"
                                         className="py-[15px] px-[20px] flex space-x-2"
                                     >
                                         <User />
                                         <Link href={"/profile"}>Thông tin tài khoản</Link>
                                     </Button>
                                     <Button
-                                        variant="outline"
+                                        variant="none"
                                         className="py-[15px] px-[20px] flex space-x-2"
                                     >
                                         <LogOut />
@@ -97,7 +112,7 @@ function Header() {
                         <div className={` cursor-pointer ${style.user}`}>
                             <Button
                                 onClick={() => router.push("/signin")}
-                                variant="outline"
+                                variant="none"
                                 className="flex items-center space-x-2  hover:bg-gray-300"
                             >
                                 <UserCircle2 className={`text-xs cursor-pointer `} />
@@ -106,18 +121,27 @@ function Header() {
                         </div>
                     )}
 
+                    {/* <Cart /> */}
                     <Tippy content="Cart">
-                        <div>
+                        <Link href={"/cart"}>
                             <ShoppingCart className="text-xs m-3 cursor-pointer relative " />
-                            <span className="absolute flex h-3 w-3 top-[30%] right-[6%]">
+
+                            {order.orderItems.length > 0 && (
+                                <span className="absolute flex h-3 w-3 top-[30%] right-[6%] sm:right-[18%] ">
+                                    <span className="animate-ping absolute inline-flex  rounded-full bg-red-500 opacity-100 h-4 w-4"></span>
+                                    <span className="relative inline-flex rounded-full h-3 w-3 bg-red-600"></span>
+                                </span>
+                            )}
+                            <span className="absolute flex h-3 w-3 top-[30%] right-[6%] sm:right-[18%] md:right-[8%]">
                                 <span className="animate-ping absolute inline-flex  rounded-full bg-red-500 opacity-100 h-4 w-4"></span>
                                 <span className="relative inline-flex rounded-full h-3 w-3 bg-red-600"></span>
                             </span>
-                        </div>
+                        </Link>
                     </Tippy>
-
                     <Tippy content="Position">
-                        <Store className="text-xs m-3 cursor-pointer" />
+                        <div>
+                            <Store className="text-xs m-3 cursor-pointer" />
+                        </div>
                     </Tippy>
                 </div>
             </div>

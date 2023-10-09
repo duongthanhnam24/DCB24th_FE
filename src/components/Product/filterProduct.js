@@ -12,7 +12,6 @@ function ListProduct({ param }) {
     const [pageUi, setPageUi] = useState(1);
     const searchParams = useSearchParams();
     const search = searchParams.get("type");
-    console.log(search);
     const { value, className } = valueRadio;
     const sort = value && className ? `&sort=${value}&sort=${className}` : "";
     const type = search ? `&type=${search}` : "";
@@ -43,15 +42,15 @@ function ListProduct({ param }) {
         return notFound();
     }
     return (
-        <div className="w-3/4">
+        <div className="w-3/4 sm:w-screen">
             <div className="mt-[40px] mb-[20px] text-base flex space-x-7">
-                <div className="flex ">
+                <div className="flex sm:hidden">
                     <AlignJustify />
                     <span className="ml-2">Sắp xếp theo</span>
                 </div>
                 <div className="">
-                    <form className="flex flex-row bg-[#f0eaea] space-x-4">
-                        <div className="space-x-1">
+                    <form className="flex flex-row bg-[#f0eaea] space-x-4 sm:flex-col">
+                        <div className="space-x-1 sm:ml-[16px]">
                             <input
                                 type="radio"
                                 className="_id"
@@ -118,21 +117,21 @@ function ListProduct({ param }) {
                     </form>
                 </div>
             </div>
-            <div className="grid gird-row-3 grid-cols-3 gap-4 ">
+            <div className="grid gird-row-3 grid-cols-3 gap-4 sm:px-2 sm:gap-2">
                 {Products?.map((product) => {
                     return (
                         <Link href={`/${product.Ob}/${product._id}`}>
-                            <div className=" wrapper">
+                            <div className=" wrapper ">
                                 <img
                                     src={product.image[0].img}
                                     alt="..."
-                                    className="w-[319px] h-[479px] rounded-xl box-sd img"
+                                    className="w-[319px] h-[479px] rounded-xl box-sd img sm:w-[150px] sm:h-[200px]"
                                 />
                                 <div className="text-center ">
-                                    <h2 className="m-3 text-gray-500 cursor-pointer text-base hover:text-black ">
+                                    <h2 className="m-3 text-gray-500 cursor-pointer text-base hover:text-black sm:text-xs">
                                         {product.name}
                                     </h2>
-                                    <p className="mt-4 font-bold">{product.price}</p>
+                                    <p className="mt-4 font-bold sm:text-xs">{product.price}</p>
                                 </div>
                                 <div className="middle">
                                     <Button className=" bg-[#6d3f0a]  text-white hover:bg-[#9b7e5e]">

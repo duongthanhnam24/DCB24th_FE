@@ -12,7 +12,6 @@ function TableProduct() {
     const [dataValue, setDataValue] = useState({});
     const [pageUi, setPageUi] = useState(1);
     const [inputCheck, setInputCheck] = useState([]);
-    const [isCheck, setIsCheck] = useState(false);
     useEffect(() => {
         const fetchData = async () => {
             try {
@@ -25,9 +24,8 @@ function TableProduct() {
         fetchData();
     }, [pageUi]);
     const { page, countProducts, totalPage, Products } = dataValue;
-    function handleCheckAll() {
-        setIsCheck(!isCheck);
-        if (!isCheck) {
+    function handleCheckAll(e) {
+        if (e.checked) {
             const idArr = [];
             for (const data of Products) {
                 idArr.push(data._id);
@@ -51,14 +49,19 @@ function TableProduct() {
         }
     }
     function handleSubmit() {
-        toast.success("Wow so easy!", { theme: "dark", position: "top-center" });
-        fetch(`${process.env.NEXT_PUBLIC_API_APP_URL}/product/delete-many-product`, {
-            method: "POST",
-            body: JSON.stringify(inputCheck),
-            headers: {
-                "Content-type": "application/json",
-            },
-        }).then((res) => res.json);
+        if (inputCheck.length === 0) {
+            toast.error("missing something ?", { theme: "dark", position: "top-center" });
+        } else {
+            toast.success("Wow so easy!", { theme: "dark", position: "top-center" });
+            fetch(`${process.env.NEXT_PUBLIC_API_APP_URL}/product/delete-many-product`, {
+                method: "POST",
+                body: JSON.stringify(inputCheck),
+                headers: {
+                    "Content-type": "application/json",
+                },
+            }).then((res) => res.json);
+        }
+
         // window.location.reload();
     }
     console.log(inputCheck);
@@ -87,17 +90,18 @@ function TableProduct() {
                 <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                     <tr>
                         <th scope="col" className="p-4">
-                            {/* <div className="flex items-center">
+                            <div className="flex items-center">
                                 <input
                                     id="checkbox-all-search"
                                     type="checkbox"
-                                    onChange={() => handleCheckAll()}
+                                    checked={inputCheck.length === 10}
+                                    onChange={(e) => handleCheckAll(e.target)}
                                     className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
                                 />
                                 <label htmlFor="checkbox-all-search" className="sr-only">
                                     checkbox
                                 </label>
-                            </div> */}
+                            </div>
                         </th>
                         <th scope="col" className="px-6 py-3 ">
                             Number
@@ -136,6 +140,7 @@ function TableProduct() {
                                     <input
                                         id={dataItem._id}
                                         type="checkbox"
+                                        checked={inputCheck.includes(dataItem._id)}
                                         onChange={(e) => handleCheck(e.target)}
                                         className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
                                     />

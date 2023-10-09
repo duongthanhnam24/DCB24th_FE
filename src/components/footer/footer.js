@@ -4,11 +4,11 @@ function Footer() {
     return (
         <>
             <div className="bg-black">
-                <div className="  container ">
-                    <div className="flex justify-between items-center py-20">
+                <div className="container sm:px-4">
+                    <div className="flex justify-between items-center py-20 sm:flex-col sm:items-start">
                         <div className="text-white">
-                            <h1 className="text-7xl font-pacifico mb-10">DCB24th</h1>
-                            <div className="my-6 flex justify-between w-52 text-2xl">
+                            <h1 className="text-7xl font-pacifico mb-10 sm:text-3xl">DCB24th</h1>
+                            <div className="my-6 flex justify-between w-52 text-2xl sm:text-sm">
                                 <Facebook />
                                 <Instagram />
                                 <Youtube />
@@ -26,9 +26,9 @@ function Footer() {
                                 </p>
                             </div>
                         </div>
-                        <div className="text-white">
+                        <div className="text-white sm:mt-2">
                             <h1 className="text-3xl font-bold">Hỗ trợ</h1>
-                            <ul className="text-lg">
+                            <ul className="text-lg sm:flex sm:flex-col ">
                                 <li>Hỏi đáp</li>
                                 <li>Chính sách vận chuyển</li>
                                 <li>Gợi ý tìm size</li>

@@ -17,7 +17,7 @@ const side = "left";
 export function SheetSide({ children }) {
     return (
         // grid grid-cols-2 gap-2
-        <div className="">
+        <div>
             <Sheet key={side}>
                 <SheetTrigger asChild>{children}</SheetTrigger>
                 <SheetContent side={side} className="bg-black">

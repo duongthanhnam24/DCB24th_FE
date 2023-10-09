@@ -4,16 +4,46 @@ import { Button } from "../ui/button";
 import Product from "./listDetailProduct";
 import { ChevronRight, ChevronLeft } from "lucide-react";
 import { DialogDemo } from "../dialog/dialog";
+import { useSelector } from "react-redux";
+import { useRouter } from "next/navigation";
+import { useDispatch } from "react-redux";
+import { addOrder } from "@/redux/features/counter/orderSlice";
 
 function DetailItem({ product }) {
-    const [count, setCount] = useState(1);
+    const order = useSelector((state) => state.order);
 
+    const [count, setCount] = useState(1);
+    const router = useRouter();
+    const dispatch = useDispatch();
+    const user = useSelector((state) => state.auth.user);
+
+    async function handleBuyProduct() {
+        let priceString = product.price;
+        let numberPrice = parseFloat(priceString.replace(/₫|,/g, ""));
+        if (!user) {
+            router.push("/signin");
+        } else {
+            await dispatch(
+                addOrder({
+                    orderItem: {
+                        name: product.name,
+                        amount: count,
+                        image: product.image[0].img,
+                        price: numberPrice,
+                        product: product._id,
+                    },
+                })
+            );
+        }
+        await localStorage.setItem("order", JSON.stringify(order.orderItems));
+    }
+    function setStorage() {}
     return (
-        <div className="relative flex pt-16">
+        <div className="relative flex pt-16 sm:flex-col items-center">
             <Product product={product} />
-            <div className="w-1/4">
+            <div className="w-1/4 sm:w-screen px-5">
                 <div>
-                    <h1 className="text-2xl font-bold mb-6">{product.name}</h1>
+                    <h1 className="text-2xl font-bold mb-6 sm:mt-4">{product.name}</h1>
                     <span className="text-base ">Thương Hiệu : DCB24th</span>
                     <h2 className="text-3xl my-10 font-bold">{product.price}</h2>
                 </div>
@@ -35,8 +65,12 @@ function DetailItem({ product }) {
                     <Button
                         variant="outline"
                         className="border border-solid border-black h-12 mb-4"
+                        onClick={() => {
+                            handleBuyProduct();
+                            setStorage();
+                        }}
                     >
-                        Thêm vào giỏ
+                        Add to Cart
                     </Button>
                     <Button
                         className=" h-12 bg-[#6d3f0a] text-white hover:bg-[#9b7e5e]"

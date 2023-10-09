@@ -41,9 +41,9 @@ function SliderItem({ children, newItem, bestItem }) {
     if (isLoading) return <Loading />;
     return (
         <div className="mt-10 ">
-            <h2 className="text-center text-4xl font-pacifico font-bold">{children}</h2>
+            <h2 className="text-center text-4xl font-pacifico font-bold sm:">{children}</h2>
             <div className="flex items-center">
-                <button className={`${classControl.BtnBack} bg-[#6d3f0a] text-white`}>
+                <button className={`${classControl.BtnBack} bg-[#6d3f0a] text-white sm:ml-2`}>
                     <ChevronLeft />
                 </button>
                 <Swiper
@@ -52,8 +52,8 @@ function SliderItem({ children, newItem, bestItem }) {
                     slidesPerView={4}
                     spaceBetween={20}
                     breakpoints={{
-                        480: { slidesPerView: 2 },
-                        740: { slidesPerView: 3 },
+                        375: { slidesPerView: 1, spaceBetween: 0 },
+                        740: { slidesPerView: 3, spaceBetween: 20 },
                         1275: { slidesPerView: 4 },
                     }}
                     navigation={{
@@ -75,11 +75,11 @@ function SliderItem({ children, newItem, bestItem }) {
                                 }}
                             >
                                 <Link href={`/${item.Ob}/${item._id}`}>
-                                    <div className="wrapper">
+                                    <div className="wrapper ">
                                         <img
                                             src={item.image[0].img}
                                             alt="..."
-                                            className="rounded-xl box-sd img w-[321px] h-[481px]"
+                                            className="rounded-xl box-sd  w-[321px] h-[481px] sm:w-[277px] sm:h-[426px]"
                                         />
 
                                         <div className="text-center ">
@@ -99,7 +99,7 @@ function SliderItem({ children, newItem, bestItem }) {
                         );
                     })}
                 </Swiper>
-                <button className={`${classControl.BtnNext} bg-[#6d3f0a] text-white`}>
+                <button className={`${classControl.BtnNext} bg-[#6d3f0a] text-white sm:mr-2`}>
                     <ChevronRight />
                 </button>
             </div>

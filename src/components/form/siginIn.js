@@ -14,9 +14,10 @@ import { Input } from "@/components/ui/input";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 import { useForm } from "react-hook-form";
-import { useRouter } from "next/navigation";
+import { useRouter, usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
+
 // import { getUser } from "@/redux/features/counter/counterSlice";
 // import { GetDetailUser } from "@/service/user";
 // import jwtDecode from "jwt-decode";
@@ -43,6 +44,8 @@ function FormSignIn() {
     const [data, setData] = useState({});
     const dispatch = useDispatch();
     const router = useRouter();
+    const pathname = usePathname();
+    console.log(pathname);
     const form = useForm({
         resolver: zodResolver(formSchema),
         defaultValues: {
@@ -83,6 +86,7 @@ function FormSignIn() {
     //     const res = await GetDetailUser(id, token);
     //     // dispatch(getUser({ res, token }));
     // };
+
     if (data?.name) {
         router.push("/");
         localStorage.setItem("access_token", data?.accToken);

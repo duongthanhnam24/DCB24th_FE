@@ -52,10 +52,10 @@ export default function LandingLayout({ children }) {
         }
     }, []);
     return (
-        <div>
+        <>
             <Header />
             <div className="mt-[56px]">{children}</div>
             <Footer />
-        </div>
+        </>
     );
 }

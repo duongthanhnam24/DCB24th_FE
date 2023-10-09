@@ -24,9 +24,9 @@ function InputHeader() {
     }, [debounce]);
     const { Products } = data;
     return (
-        <div className="flex group w-60">
+        <div className="flex group w-60 sm:hidden md:flex">
             <div
-                className={` relative  flex w-full border  items-center mr-8 rounded-lg outline-1 outline-gray-600 group-hover:outline  ${style.search}`}
+                className={` relative  flex w-full border  items-center mr-8 rounded-lg outline-1 outline-gray-600 group-hover:outline md:w-[150px] ${style.search}`}
             >
                 <Input
                     value={result}
@@ -38,7 +38,7 @@ function InputHeader() {
                         setResult(e.target.value);
                     }}
                 />
-                <Button variant="ghost" type="submit" className="p-1 h-6 w-16 ">
+                <Button variant="ghost" type="submit" className="p-1 h-6 w-16 md:w-8">
                     <Search
                         className={` text-slate-500 group-hover:text-black focus-visible:text-black ${style.btn}`}
                     />

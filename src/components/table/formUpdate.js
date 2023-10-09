@@ -17,20 +17,19 @@ const sizeDefault = [
     "us14",
 ];
 function FormUpdate({ id, product }) {
-    console.log(product);
-    const [valueForm, setValueForm] = useState({
-        name: product.name,
-        price: product.price,
-        type: product.type,
-        size: null,
-        Ob: product.Ob,
-        image: null,
-    });
     const [img1, setImg1] = useState(product.image[0]);
     const [img2, setImg2] = useState(product.image[1]);
     const [img3, setImg3] = useState(product.image[2]);
     const [img4, setImg4] = useState(product?.image[3]);
-    const [sizeCheck, setSizeCheck] = useState([]);
+    const [sizeCheck, setSizeCheck] = useState(product.size);
+    const [valueForm, setValueForm] = useState({
+        name: product.name,
+        price: product.price,
+        type: product.type,
+        size: sizeCheck,
+        Ob: product.Ob,
+        image: [img1, img2, img3, img4],
+    });
 
     function handleCheck(e) {
         if (e.checked) {
@@ -53,8 +52,8 @@ function FormUpdate({ id, product }) {
             image: [img1, img2, img3, img4],
             size: sizeCheck,
         });
-        console.log(valueForm);
     }
+    console.log(valueForm);
     async function handleSubmit() {
         const data = await updateProduct(id, valueForm);
         if (data.message === "missing something ?") {
@@ -140,6 +139,7 @@ function FormUpdate({ id, product }) {
                                     type="checkbox"
                                     id={size}
                                     value={size}
+                                    checked={sizeCheck.includes(size)}
                                     onChange={(e) => {
                                         handleCheck(e.target);
                                     }}
