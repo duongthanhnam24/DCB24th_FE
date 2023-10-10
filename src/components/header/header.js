@@ -28,7 +28,7 @@ function Header() {
         localStorage.clear();
     }
     return (
-        <header className="flex flex-row justify-between items-center fixed z-50 inset-x-0 top-0 px-14 bg-white rounded-b-sm h-14 box-sd  sm:justify-between sm:w-screen sm:px-3 md:w-screen">
+        <header className="flex flex-row justify-between items-center fixed z-50 inset-x-0 top-0 px-14 bg-white rounded-b-sm h-14 box-sd  sm:justify-between sm:w-screen sm:px-3 md:w-screen animate-fade-right animate-once animate-duration-1000">
             {/* <div>
                 <Menu />
             </div> */}
@@ -127,15 +127,15 @@ function Header() {
                             <ShoppingCart className="text-xs m-3 cursor-pointer relative " />
 
                             {order.orderItems.length > 0 && (
-                                <span className="absolute flex h-3 w-3 top-[30%] right-[6%] sm:right-[18%] ">
+                                <span className="absolute flex h-3 w-3 transform translate-x-[217%] translate-y-[-70%] top-1/2  ">
                                     <span className="animate-ping absolute inline-flex  rounded-full bg-red-500 opacity-100 h-4 w-4"></span>
                                     <span className="relative inline-flex rounded-full h-3 w-3 bg-red-600"></span>
                                 </span>
                             )}
-                            <span className="absolute flex h-3 w-3 top-[30%] right-[6%] sm:right-[18%] md:right-[8%]">
+                            {/* <span className="absolute flex h-3 w-3 top-[30%] right-[6%] sm:right-[18%] md:right-[8%]">
                                 <span className="animate-ping absolute inline-flex  rounded-full bg-red-500 opacity-100 h-4 w-4"></span>
                                 <span className="relative inline-flex rounded-full h-3 w-3 bg-red-600"></span>
-                            </span>
+                            </span> */}
                         </Link>
                     </Tippy>
                     <Tippy content="Position">

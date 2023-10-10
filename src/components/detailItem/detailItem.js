@@ -11,6 +11,7 @@ import { addOrder } from "@/redux/features/counter/orderSlice";
 
 function DetailItem({ product }) {
     const order = useSelector((state) => state.order);
+    const [typeBtn, setTypeBtn] = useState(true);
 
     const [count, setCount] = useState(1);
     const router = useRouter();
@@ -23,19 +24,24 @@ function DetailItem({ product }) {
         if (!user) {
             router.push("/signin");
         } else {
-            await dispatch(
-                addOrder({
-                    orderItem: {
-                        name: product.name,
-                        amount: count,
-                        image: product.image[0].img,
-                        price: numberPrice,
-                        product: product._id,
-                    },
-                })
-            );
+            if (typeBtn === true || typeBtn === false) {
+                setTypeBtn(false);
+            } else {
+                dispatch(
+                    addOrder({
+                        orderItem: {
+                            name: product.name,
+                            size: typeBtn,
+                            amount: count,
+                            image: product.image[0].img,
+                            price: numberPrice,
+                            product: product._id,
+                        },
+                    })
+                );
+                router.push("/cart");
+            }
         }
-        await localStorage.setItem("order", JSON.stringify(order.orderItems));
     }
     function setStorage() {}
     return (
@@ -47,7 +53,7 @@ function DetailItem({ product }) {
                     <span className="text-base ">Thương Hiệu : DCB24th</span>
                     <h2 className="text-3xl my-10 font-bold">{product.price}</h2>
                 </div>
-                <ButtonSize product={product} />
+                <ButtonSize product={product} typeBtn={typeBtn} setTypeBtn={setTypeBtn} />
                 <div>
                     <DialogDemo />
                 </div>
@@ -64,7 +70,7 @@ function DetailItem({ product }) {
                 <div className="flex flex-col">
                     <Button
                         variant="outline"
-                        className="border border-solid border-black h-12 mb-4"
+                        className="border border-solid border-black h-12 "
                         onClick={() => {
                             handleBuyProduct();
                             setStorage();
@@ -72,8 +78,9 @@ function DetailItem({ product }) {
                     >
                         Add to Cart
                     </Button>
+                    {typeBtn === false && <span className="text-red-500">Choose Your Size</span>}
                     <Button
-                        className=" h-12 bg-[#6d3f0a] text-white hover:bg-[#9b7e5e]"
+                        className=" h-12 bg-[#6d3f0a] text-white hover:bg-[#9b7e5e] mt-4"
                         variant="none"
                     >
                         Mua Ngay
@@ -96,9 +103,7 @@ function DetailItem({ product }) {
 
 export default DetailItem;
 
-function ButtonSize({ product }) {
-    const [typeBtn, setTypeBtn] = useState("size2");
-
+function ButtonSize({ product, typeBtn, setTypeBtn }) {
     return (
         <div className="">
             <p className="font-bold my-2">Kích thước {typeBtn}</p>

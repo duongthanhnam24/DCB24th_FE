@@ -31,7 +31,7 @@ function AllProductOb({ params }) {
                 <h1 className="py-[15px] text-[14px] sm:px-5">
                     <Link href={"/"}>HOME</Link>/ All
                 </h1>
-                <div className=" flex sm:flex-col-reverse">
+                <div className=" flex sm:flex-col-reverse sm:items-center">
                     <div className="w-1/4 flex flex-col mt-[40px] space-y-6 sm:w-screen sm:items-center">
                         <div className="w-[250px] flex flex-col space-y-4 items-center sm:justify-center">
                             <div className="w-full bg-[#6d3f0a] text-white flex justify-center items-center space-x-2 py-3  rounded-md ">
@@ -62,7 +62,7 @@ function AllProductOb({ params }) {
                             >
                                 Áo
                             </Button>
-                            {param == "woman" && (
+                            {param === "woman" && (
                                 <Button
                                     className={`${
                                         buttonId === "dress" && "bg-[#6d3f0a] text-white"

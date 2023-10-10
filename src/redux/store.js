@@ -1,4 +1,4 @@
-import { configureStore } from "@reduxjs/toolkit";
+import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import authSlide from "./features/counter/counterSlice";
 import orderSlice from "./features/counter/orderSlice";
 
@@ -12,7 +12,6 @@ import {
     PURGE,
     REGISTER,
 } from "redux-persist";
-import { PersistGate } from "redux-persist/integration/react";
 import createWebStorage from "redux-persist/lib/storage/createWebStorage";
 
 const createNoopStorage = () => {
@@ -30,9 +29,24 @@ const createNoopStorage = () => {
 };
 
 const storage = typeof window !== "undefined" ? createWebStorage("local") : createNoopStorage();
+
+const persistConfig = {
+    key: "root",
+    version: 1,
+    storage,
+    blacklist: ["auth"],
+};
+
+const rootReducer = combineReducers({ auth: authSlide, order: orderSlice });
+const persistedReducer = persistReducer(persistConfig, rootReducer);
 export const store = configureStore({
-    reducer: {
-        auth: authSlide,
-        order: orderSlice,
-    },
+    reducer: persistedReducer,
+    middleware: (getDefaultMiddleware) =>
+        getDefaultMiddleware({
+            serializableCheck: {
+                ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+            },
+        }),
 });
+
+export let persistor = persistStore(store);

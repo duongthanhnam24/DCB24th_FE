@@ -8,38 +8,36 @@ import style from "./landing.module.css";
 import Image from "next/image";
 import slide from "@/../../public/img/slider10.jpg";
 import slideBottom from "../../../public/img/slider2.jpg";
-import boy from "@/../../public/img/boy1.jpg";
+import boy from "@/../../public/img/boy3.jpg";
 import her from "@/../../public/img/her1.jpg";
 import kid from "@/../../public/img/kid1.jpg";
 import Loading from "./loading";
+import Link from "next/link";
 
 export default function Counter() {
     return (
         <>
             <div className=" font-merriweather">
                 {/* slider */}
-                <div className="flex justify-center items-center relative">
+                <div className="flex justify-center items-center relative animate-fade-down animate-once animate-duration-1500">
                     <Image src={slide} alt="..." className={`${style.slide} `} />
-                    <div className="absolute flex flex-col bottom-0 left-0 p-10 sm:hidden">
-                        <h1 className="text-black w-60">
+                    <div className="absolute flex flex-col bottom-0 left-0 p-10  animate-fade-down animate-duration-[1600ms] animate-ease-in-out sm:pb-2 sm:w-screen sm:items-center">
+                        <h1 className="text-black w-60 sm:text-center">
                             Platform for luxury fashion for buying and selling
                         </h1>
-                        <div className="mt-3 flex ">
+                        <div className="mt-3 flex sm:flex-col sm:items-center">
                             <SheetSide catalogue>
-                                <Button className="text-white bg-black border-white border hover:bg-black hover:opacity-70 mr-5 w-30">
+                                <Button className="text-white bg-black border-white border hover:bg-black hover:opacity-70 mr-5 w-30 sm:h-5 sm:bg-transparent">
                                     Catalogue
                                 </Button>
                             </SheetSide>
-                            <Button className="text-black bg-white hover:bg-white hover:opacity-70 w-40 ">
-                                Sell Item
-                            </Button>
                         </div>
                     </div>
                 </div>
 
                 {/* content */}
                 <div>
-                    <div className="flex flex-row justify-evenly  py-6 text-[#6d3f0a]">
+                    <div className="flex flex-row justify-evenly  py-6 text-[#6d3f0a] animate-fade animate-duration-[2000ms] animate-ease-in-out">
                         <div className="font-pacifico ">
                             <h2 className="text-3xl font-bold sm:text-xl sm:font-medium">
                                 DCB24th
@@ -68,90 +66,36 @@ export default function Counter() {
                     </div>
                     {/*clothes  */}
                     <div className="grid grid-cols-2 grid-rows-1 px-10 gap-5 mx-24 sm:flex sm:flex-col sm:mx-0 sm:p-5">
-                        <div className="col-span-1 h-full relative">
-                            <Image
-                                src={boy}
-                                alt="boy"
-                                className={`h-full rounded-2xl relative ${style.img} box-sd`}
-                            />
-                            <h3 className="absolute top-0 p-10 text-3xl font-bold sm:p-5 sm:text-base">
-                                For Him
-                            </h3>
-                            {/* <div className="absolute p-10 flex flex-col text-base text-white bottom-0">
-                                <a href="/" className="p-5 italic text-lg hover:underline ">
-                                    Áo
-                                </a>
-                                <a href="/" className="p-5 italic text-lg hover:underline">
-                                    Quần
-                                </a>
-                                <a href="/" className="p-5 italic text-lg hover:underline">
-                                    Gìay
-                                </a>
-                            </div> */}
+                        <div className="col-span-1 h-full relative animate-fade-left animate-duration-[2000ms] animate-ease-in-out">
+                            <Link href={"/man"}>
+                                <Image
+                                    src={boy}
+                                    alt="boy"
+                                    className={`h-full rounded-2xl relative ${style.img} box-sd`}
+                                />
+                            </Link>
                         </div>
 
-                        <div className=" col-span-1  h-full ">
+                        <div className=" col-span-1  h-full animate-fade-right animate-duration-[2000ms] animate-ease-in-out">
                             {/* for her */}
                             <div className="col-span-1 h-1/2 relative">
-                                <div className={style.wrapper}>
-                                    <div className={` ${style.subbg} `}>
-                                        <h3 className="absolute text-white top-0 p-20 text-2xl font-bold ">
-                                            For Her
-                                        </h3>
-                                        <ul
-                                            className={`absolute p-10 flex flex-col  text-white italic text-lg bottom-0 r-0 sm:hidden `}
-                                        >
-                                            <li href="/" className="p-5  hover:underline ">
-                                                Tops & T-Shirts
-                                            </li>
-                                            <li href="/" className="p-5  hover:underline">
-                                                Pants and Leggings
-                                            </li>
-                                            <li href="/" className="p-5  hover:underline">
-                                                Dress
-                                            </li>
-                                            <li href="/" className="p-5  hover:underline">
-                                                Short
-                                            </li>
-                                        </ul>
-                                    </div>
+                                <Link href={"/woman"}>
                                     <Image
                                         src={her}
                                         alt="girl"
                                         className={`h-full rounded-2xl w-full  `}
                                     />
-                                </div>
+                                </Link>
                             </div>
                             {/* for kids */}
                             <div className="col-span-1 h-1/2 relative ">
-                                <div className={style.wrapper}>
-                                    <div className={`w-full ${style.subbg} `}>
-                                        <h3 className="absolute text-white top-0 p-20 text-2xl font-bold ">
-                                            For Kids
-                                        </h3>
-                                        <ul
-                                            className={`absolute p-10 flex flex-col  text-white italic text-lg bottom-0 r-0 sm:hidden `}
-                                        >
-                                            <li href="/" className="p-5  hover:underline ">
-                                                Tops & T-Shirts
-                                            </li>
-                                            <li href="/" className="p-5  hover:underline">
-                                                Pants
-                                            </li>
-                                            <li href="/" className="p-5  hover:underline">
-                                                Dress
-                                            </li>
-                                            <li href="/" className="p-5  hover:underline">
-                                                Short
-                                            </li>
-                                        </ul>
-                                    </div>
+                                <Link href={"/kids"}>
                                     <Image
                                         src={kid}
                                         alt="girl"
                                         className={`h-full rounded-2xl w-full `}
                                     />
-                                </div>
+                                </Link>
                             </div>
                         </div>
                     </div>

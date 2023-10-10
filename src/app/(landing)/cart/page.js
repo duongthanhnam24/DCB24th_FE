@@ -44,6 +44,9 @@ function Cart() {
                                 Number
                             </th>
                             <th scope="col" className="px-6 py-3 ">
+                                Size
+                            </th>
+                            <th scope="col" className="px-6 py-3 ">
                                 Total
                             </th>
                             <th scope="col" className="px-6 py-3 ">
@@ -67,7 +70,7 @@ function Cart() {
                                     />
                                 </td>
                                 <td className="px-6 py-4 font-bold text-base">{item.name}</td>
-                                <td className="px-6 py-4">{item.price}</td>
+                                <td className="px-6 py-4">{item.price}đ</td>
                                 <td className="px-6 py-4">
                                     <p className="flex space-x-3">
                                         <Minus
@@ -79,8 +82,9 @@ function Cart() {
                                         />
                                     </p>
                                 </td>
+                                <td className="px-6 py-4">{item.size}</td>
 
-                                <td className="px-6 py-4">{item.price * item.amount}</td>
+                                <td className="px-6 py-4 font-bold">{item.price * item.amount}đ</td>
                                 <td className="px-6 py-4">
                                     <Button
                                         variant="none"
