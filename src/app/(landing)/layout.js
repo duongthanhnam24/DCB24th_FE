@@ -45,7 +45,7 @@ export default function LandingLayout({ children }) {
         if (decoded?.id) {
             handleGetUser(decoded?.id, tokkenStorage);
         }
-    }, []);
+    }, [handleGetUser]);
     return (
         <>
             <Header />

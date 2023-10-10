@@ -26,7 +26,7 @@ function ListProduct({ param }) {
             .then((res) => {
                 setData(res);
             });
-    }, [valueRadio, pageUi, search]);
+    }, [valueRadio, pageUi, search, param, sort, type]);
     if (!data) {
         return (
             <div className="flex justify-center items-center w-full min-h-[300px]">

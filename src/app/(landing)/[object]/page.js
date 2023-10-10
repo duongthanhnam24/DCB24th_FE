@@ -26,7 +26,7 @@ function AllProductOb({ params }) {
     };
     return (
         <div className="mb-52">
-            <Image src={sildePage} />
+            <Image src={sildePage} alt="..." />
             <div className="container">
                 <h1 className="py-[15px] text-[14px] sm:px-5">
                     <Link href={"/"}>HOME</Link>/ All

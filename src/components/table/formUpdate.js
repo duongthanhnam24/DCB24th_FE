@@ -134,7 +134,7 @@ function FormUpdate({ id, product }) {
                     <div className="flex text-base font-bold flex-col">
                         <label> Size</label>
                         {sizeDefault.map((size) => (
-                            <div className="space-x-3">
+                            <div className="space-x-3" key={size}>
                                 <input
                                     type="checkbox"
                                     id={size}

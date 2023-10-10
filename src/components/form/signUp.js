@@ -38,7 +38,7 @@ const formSchema = z
             .refine((value) => value.trim().length >= 6, {
                 message: "Password must be at least 6 characters",
             }),
-        phone: z.number().refine((value) => value.trim().length > 0, {
+        phone: z.string().refine((value) => value.trim().length > 0, {
             message: "phone is required",
         }),
     })
@@ -57,7 +57,7 @@ function FormSignIn() {
             email: "",
             password: "",
             checkpassword: "",
-            phone: "",
+            phone: 0,
         },
     });
 

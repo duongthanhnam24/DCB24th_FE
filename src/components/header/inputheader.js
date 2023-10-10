@@ -48,8 +48,8 @@ function InputHeader() {
                 <div className="absolute top-full bg-white w-60 rounded-lg">
                     <h3 className="px-4 bg-[#6d3f0a] text-white">Kết quả tìm kiếm : </h3>
                     {Products.length > 0 ? (
-                        Products.map((result) => (
-                            <Link href={`/${result.Ob}/${result._id}`}>
+                        Products.map((result, i) => (
+                            <Link href={`/${result.Ob}/${result._id}`} key={i}>
                                 <div className="flex mt-3">
                                     <img src={result.image[0].img} className="w-[70px] h-[120px]" />
                                     <div className="flex flex-col ml-2">

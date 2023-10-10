@@ -87,8 +87,11 @@ export function DialogDemo() {
                 <div>
                     <h1 className="text-center text-2xl">Choose Your Size</h1>
                     <div className="mt-10">
-                        {arrSize.map((value) => (
-                            <div className="flex justify-around border-b-2 border-solid border-black">
+                        {arrSize.map((value, i) => (
+                            <div
+                                className="flex justify-around border-b-2 border-solid border-black"
+                                key={i}
+                            >
                                 <h2>{value.size}</h2>
                                 <p>
                                     {value.small}
