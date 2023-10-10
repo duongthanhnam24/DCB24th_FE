@@ -120,7 +120,7 @@ function ListProduct({ param }) {
             <div className="grid gird-row-3 grid-cols-3 gap-4 sm:px-2 sm:gap-2">
                 {Products?.map((product) => {
                     return (
-                        <Link href={`/${product.Ob}/${product._id}`}>
+                        <Link href={`/${product.Ob}/${product._id}`} key={product._id}>
                             <div className=" wrapper ">
                                 <img
                                     src={product.image[0].img}
