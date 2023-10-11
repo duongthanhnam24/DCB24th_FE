@@ -1,16 +1,27 @@
 "use client";
 import Link from "next/link";
 
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { UserSquare2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import Image from "next/image";
-import { useMemo } from "react";
+import { useMemo, useState } from "react";
+import { createOrder } from "@/service/order";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { reset } from "@/redux/features/counter/orderSlice";
 
-function Checkouts() {
+function Checkouts({ params }) {
+    const dispath = useDispatch();
     const user = useSelector((state) => state.auth.user);
     const order = useSelector((state) => state.order);
+    const [ship, setShip] = useState({
+        fullName: "",
+        address: "",
+        city: "",
+        phone: "",
+    });
+    const [payment, setPayment] = useState("");
     const resultTotal = useMemo(() => {
         let init = 0;
         for (const orderItem of order.orderItems) {
@@ -19,6 +30,22 @@ function Checkouts() {
         }
         return init;
     }, [order]);
+
+    function handleSetShipping(e) {
+        setShip({
+            ...ship,
+            [e.name]: e.value,
+        });
+    }
+    async function handleSubmit() {
+        const data = await createOrder(order.orderItems, ship, payment, resultTotal, params.id);
+        if (data.message) {
+            toast.error("Bạn quên điền thứ gì đó ?", { theme: "dark", position: "top-center" });
+        } else {
+            toast.success("Đặt Hàng Thành Công", { theme: "dark", position: "top-center" });
+            dispath(reset());
+        }
+    }
     return (
         <div className="container min-h-[800px]">
             <h1 className="py-6 text-[14px] uppercase">
@@ -46,18 +73,26 @@ function Checkouts() {
                     <form className="space-y-3">
                         <Input
                             placeholder="Name"
+                            name="fullName"
+                            onChange={(e) => handleSetShipping(e.target)}
                             className="border border-solid border-gray-400 focus-visible:border-[2px] focus-visible:border-blue-500"
                         />
                         <Input
                             placeholder="Phone"
+                            name="phone"
+                            onChange={(e) => handleSetShipping(e.target)}
                             className="border border-solid border-gray-400 focus-visible:border-[2px] focus-visible:border-blue-500"
                         />
                         <Input
                             placeholder="City"
+                            name="city"
+                            onChange={(e) => handleSetShipping(e.target)}
                             className="border border-solid border-gray-400 focus-visible:border-[2px] focus-visible:border-blue-500"
                         />
                         <Input
                             placeholder="Address"
+                            name="address"
+                            onChange={(e) => handleSetShipping(e.target)}
                             className="border border-solid border-gray-400 focus-visible:border-[2px] focus-visible:border-blue-500"
                         />
                     </form>
@@ -82,7 +117,7 @@ function Checkouts() {
                         ))}
                     </div>
                     <h3>
-                        Tổng Tiền : <span className="float-right">{resultTotal} đ</span>
+                        Tổng Tiền : <span className="float-right font-bold">{resultTotal} đ</span>
                     </h3>
                 </div>
             </div>
@@ -101,21 +136,37 @@ function Checkouts() {
                 </form>
                 <h2 className="text-xl">Phương Thức Thanh Toán</h2>
                 <form className="space-y-3">
-                    <input type="radio" id="faceToFace" name="Payment" />
+                    <input
+                        type="radio"
+                        id="faceToFace"
+                        name="Payment"
+                        value="Thanh Toán khi nhận"
+                        onChange={(e) => setPayment(e.target.value)}
+                    />
                     <label htmlFor="faceToFace">Thanh toán khi nhận hàng</label>
                     <br />
-                    <input type="radio" id="paypal" name="Payment" />
+                    <input
+                        type="radio"
+                        id="paypal"
+                        name="Payment"
+                        value="Payment"
+                        onChange={(e) => setPayment(e.target.value)}
+                    />
                     <label htmlFor="paypal">Paypal</label>
                 </form>
+                <div className="h-[100px]">
+                    <Button
+                        variant="none"
+                        onClick={() => handleSubmit()}
+                        className="float-right  h-12 bg-[#6d3f0a] text-white hover:bg-[#9b7e5e] mt-5"
+                    >
+                        Xác Nhận
+                    </Button>
+                </div>
             </div>
-            <div>
-                <Button
-                    variant="none"
-                    className="float-right  h-12 bg-[#6d3f0a] text-white hover:bg-[#9b7e5e] mt-5"
-                >
-                    Xác Nhận
-                </Button>
-            </div>
+            <h1>HOẶC</h1>
+
+            <ToastContainer />
         </div>
     );
 }

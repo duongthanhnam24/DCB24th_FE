@@ -75,7 +75,9 @@ function Header() {
                                         className="py-[15px] px-[20px] flex space-x-2"
                                     >
                                         <FolderCog />
-                                        <Link href={"/management"}>Quản lý sản phẩm</Link>
+                                        <Link href={"/management?table=product"}>
+                                            Quản lý sản phẩm
+                                        </Link>
                                     </Button>
                                     <Button
                                         variant="none"

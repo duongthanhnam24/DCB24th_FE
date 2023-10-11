@@ -1,5 +1,4 @@
 "use client";
-import Image from "next/image";
 import Link from "next/link";
 import { useDispatch, useSelector } from "react-redux";
 import { Plus, Minus, Trash2 } from "lucide-react";
@@ -117,12 +116,14 @@ function Cart() {
                         </tr>
                     </tfoot>
                 </table>
-                <Button
-                    variant="none"
-                    className="float-right  h-12 bg-[#6d3f0a] text-white hover:bg-[#9b7e5e] mt-5"
-                >
-                    <Link href={`/checkouts/${user._id}`}> Thanh Toán</Link>
-                </Button>
+                <div className="h-[100px]">
+                    <Button
+                        variant="none"
+                        className="float-right  h-12 bg-[#6d3f0a] text-white hover:bg-[#9b7e5e] mt-5"
+                    >
+                        <Link href={`/checkouts/${user?._id}`}> Thanh Toán</Link>
+                    </Button>
+                </div>
             </div>
         </div>
     );

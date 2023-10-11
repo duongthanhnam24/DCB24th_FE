@@ -23,7 +23,7 @@ async function Girl({ params }) {
             </div>
             <div className="border border-b-2 border-solid border-black mt-40"></div>
             <div className="container">
-                <SliderItem>Sản Phẩm Tương Tự</SliderItem>
+                <SliderItem>Sản Phẩm Bán Chạy</SliderItem>
             </div>
         </div>
     );

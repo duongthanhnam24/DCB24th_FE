@@ -34,6 +34,12 @@ function Footer() {
                                 <li>Gợi ý tìm size</li>
                                 <li>Kiểm tra đơn hàng</li>
                             </ul>
+                            <h2>
+                                Lưu ý: Trang được tạo ra nhằm mục đính học tập và nghiên cứu
+                                <br />
+                                không có bất kỳ hình thức mạo danh kiếm tiền
+                                <br /> Xin cảm ơn
+                            </h2>
                         </div>
                         <div className="text-white">
                             <h1 className="py-7 text-3xl font-bold">Phương thức thanh toán</h1>

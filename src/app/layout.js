@@ -1,4 +1,5 @@
 "use client";
+
 import "@/styles/globals.css";
 
 import { Provider } from "react-redux";

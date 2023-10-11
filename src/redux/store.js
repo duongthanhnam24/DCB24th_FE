@@ -27,7 +27,6 @@ const createNoopStorage = () => {
         },
     };
 };
-
 const storage = typeof window !== "undefined" ? createWebStorage("local") : createNoopStorage();
 
 const persistConfig = {
@@ -36,7 +35,6 @@ const persistConfig = {
     storage,
     blacklist: ["auth"],
 };
-
 const rootReducer = combineReducers({ auth: authSlide, order: orderSlice });
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 export const store = configureStore({
