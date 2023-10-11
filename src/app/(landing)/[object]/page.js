@@ -29,7 +29,8 @@ function AllProductOb({ params }) {
             <Image src={sildePage} alt="..." />
             <div className="container">
                 <h1 className="py-[15px] text-[14px] sm:px-5">
-                    <Link href={"/"}>HOME</Link>/ All
+                    <Link href={"/"}>Trang Chủ</Link>/{" "}
+                    <span className="font-medium text-[#6d3f0a]">Tất cả sản phẩm</span>
                 </h1>
                 <div className=" flex sm:flex-col-reverse sm:items-center">
                     <div className="w-1/4 flex flex-col mt-[40px] space-y-6 sm:w-screen sm:items-center">

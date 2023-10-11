@@ -90,7 +90,7 @@ function SliderItem({ children, newItem, bestItem }) {
                                         </div>
                                         <div className="middle">
                                             <Button className="bg-[#6d3f0a] text-white hover:bg-[#9b7e5e]">
-                                                MORE
+                                                Xem Thêm
                                             </Button>
                                         </div>
                                     </div>

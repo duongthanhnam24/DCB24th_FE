@@ -37,7 +37,7 @@ export function NavigationMenuDemo({ children, her, boy, kid, className }) {
                                     className="group hover:bg-[#8f5928] cursor-pointer"
                                     subText="Best Sell"
                                 >
-                                    Brings best-selling products
+                                    Những sản phẩm bán chạy nhất
                                 </ListItem>
                                 <ListItem
                                     href="/"
@@ -45,7 +45,7 @@ export function NavigationMenuDemo({ children, her, boy, kid, className }) {
                                     className="group hover:bg-[#8f5928] cursor-pointer"
                                     subText="New Products"
                                 >
-                                    New design in this year
+                                    Thiết kế mới trong năm nay
                                 </ListItem>
                                 <ListItem
                                     href={hrefs}
@@ -53,7 +53,7 @@ export function NavigationMenuDemo({ children, her, boy, kid, className }) {
                                     className="group hover:bg-[#8f5928] cursor-pointer"
                                     subText="All Products"
                                 >
-                                    All of our products
+                                    Tất cả sản Phẩm
                                 </ListItem>
                             </ul>
                         </div>

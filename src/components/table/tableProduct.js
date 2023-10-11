@@ -62,7 +62,7 @@ function TableProduct() {
             }).then((res) => res.json);
         }
 
-        // window.location.reload();
+        window.location.reload();
     }
     console.log(inputCheck);
     return (

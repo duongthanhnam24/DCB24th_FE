@@ -76,9 +76,11 @@ function DetailItem({ product }) {
                             setStorage();
                         }}
                     >
-                        Add to Cart
+                        Thêm vào Giỏ Hàng
                     </Button>
-                    {typeBtn === false && <span className="text-red-500">Choose Your Size</span>}
+                    {typeBtn === false && (
+                        <span className="text-red-500">Hãy chọn size cho bạn</span>
+                    )}
                     <Button
                         className=" h-12 bg-[#6d3f0a] text-white hover:bg-[#9b7e5e] mt-4"
                         variant="none"

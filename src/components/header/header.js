@@ -41,13 +41,13 @@ function Header() {
 
             <div className="flex justify-between items-center sm:hidden md:flex">
                 <NavigationMenuDemo className={style.her} her>
-                    <span className="text-base">For Her</span>
+                    <span className="text-base">Cho nữ</span>
                 </NavigationMenuDemo>
                 <NavigationMenuDemo className={style.boy} boy>
-                    <span className="text-base">For Him</span>
+                    <span className="text-base">Cho nam</span>
                 </NavigationMenuDemo>
                 <NavigationMenuDemo className={style.kid} kid>
-                    <span className="text-base">For Kid</span>
+                    <span className="text-base">Cho trẻ em</span>
                 </NavigationMenuDemo>
             </div>
             <div className="flex flex-row items-center ">

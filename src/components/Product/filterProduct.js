@@ -64,7 +64,7 @@ function ListProduct({ param }) {
                                     })
                                 }
                             />
-                            <label htmlFor="default">Default</label>
+                            <label htmlFor="default">Mặc định</label>
                         </div>
                         <div className="space-x-1">
                             <input
@@ -80,7 +80,7 @@ function ListProduct({ param }) {
                                     })
                                 }
                             />
-                            <label htmlFor="best">Best</label>
+                            <label htmlFor="best">Hot</label>
                         </div>
                         <div className="space-x-1">
                             <input
@@ -96,7 +96,7 @@ function ListProduct({ param }) {
                                     });
                                 }}
                             />
-                            <label htmlFor="desc">Price : Decrease</label>
+                            <label htmlFor="desc">Gía giảm dần</label>
                         </div>
                         <div className="space-x-1">
                             <input
@@ -112,7 +112,7 @@ function ListProduct({ param }) {
                                     });
                                 }}
                             />
-                            <label htmlFor="asc">Price : Ascending</label>
+                            <label htmlFor="asc">Gía tăng dần</label>
                         </div>
                     </form>
                 </div>
@@ -135,7 +135,7 @@ function ListProduct({ param }) {
                                 </div>
                                 <div className="middle">
                                     <Button className=" bg-[#6d3f0a]  text-white hover:bg-[#9b7e5e]">
-                                        MORE
+                                        Xem Thêm
                                     </Button>
                                 </div>
                             </div>

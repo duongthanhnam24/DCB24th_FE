@@ -61,7 +61,7 @@ function FormAdd() {
                         id="imgOne"
                         name="img"
                         onChange={(e) => setImg1({ img: e.target.value })}
-                        className="border border-solid border-slate-950 rounded-sm w-[250px] px-2 py-1"
+                        className="border border-solid border-gray-500 rounded-sm w-[250px] px-2 py-1 focus-visible:border-blue-500"
                     />
                     <label className=" font-bold text-base" htmlFor="imgTwo">
                         Image
@@ -70,7 +70,7 @@ function FormAdd() {
                         id="imgTwo"
                         name="img"
                         onChange={(e) => setImg2({ img: e.target.value })}
-                        className="border border-solid border-slate-950 rounded-sm w-[250px] px-2 py-1"
+                        className="border border-solid border-gray-500 rounded-sm w-[250px] px-2 py-1"
                     />
                     <label className=" font-bold text-base" htmlFor="imgThree">
                         Image
@@ -79,7 +79,7 @@ function FormAdd() {
                         id="imgThree"
                         name="img"
                         onChange={(e) => setImg3({ img: e.target.value })}
-                        className="border border-solid border-slate-950 rounded-sm w-[250px] px-2 py-1"
+                        className="border border-solid border-gray-500 rounded-sm w-[250px] px-2 py-1"
                     />
                     <label className=" font-bold text-base" htmlFor="imgFour">
                         Image
@@ -90,7 +90,7 @@ function FormAdd() {
                         onChange={(e) => {
                             setImg4({ img: e.target.value });
                         }}
-                        className="border border-solid border-slate-950 rounded-sm w-[250px] px-2 py-1"
+                        className="border border-solid border-gray-500 rounded-sm w-[250px] px-2 py-1"
                     />
                     <label className="text-black font-bold text-base" htmlFor="name">
                         Name
@@ -100,7 +100,7 @@ function FormAdd() {
                         name="name"
                         value={valueForm.name}
                         onChange={(e) => getValue(e.target)}
-                        className="border border-solid border-slate-950 rounded-sm w-[250px] px-2 py-1"
+                        className="border border-solid border-gray-500 rounded-sm w-[250px] px-2 py-1"
                     />
                     <label className=" font-bold text-base" htmlFor="price">
                         Price
@@ -110,7 +110,7 @@ function FormAdd() {
                         name="price"
                         value={valueForm.price}
                         onChange={(e) => getValue(e.target)}
-                        className="border border-solid border-slate-950 rounded-sm w-[250px] px-2 py-1"
+                        className="border border-solid border-gray-500 rounded-sm w-[250px] px-2 py-1"
                     />
                 </div>
                 <div className="flex flex-col">

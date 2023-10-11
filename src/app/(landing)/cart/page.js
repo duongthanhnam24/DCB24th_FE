@@ -5,11 +5,20 @@ import { useDispatch, useSelector } from "react-redux";
 import { Plus, Minus, Trash2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { removeOrder, increasing, decrease } from "@/redux/features/counter/orderSlice";
+import { use, useMemo } from "react";
 
 function Cart() {
     const dispatch = useDispatch();
     const order = useSelector((state) => state.order);
-
+    const user = useSelector((state) => state.auth.user);
+    const resultTotal = useMemo(() => {
+        let init = 0;
+        for (const orderItem of order.orderItems) {
+            let TotalPriceItem = orderItem.amount * orderItem.price;
+            init += TotalPriceItem;
+        }
+        return init;
+    }, [order]);
     const changeNumber = (type, id) => {
         switch (type) {
             case "decrease":
@@ -98,12 +107,21 @@ function Cart() {
                             </tr>
                         ))}
                     </tbody>
+                    <tfoot>
+                        <tr>
+                            <td>Note</td>
+                            <td colSpan={6} className="text-right">
+                                Tổng tiền :
+                                <span className="font-medium text-2xl"> {resultTotal} đ</span>
+                            </td>
+                        </tr>
+                    </tfoot>
                 </table>
                 <Button
                     variant="none"
-                    className="float-right  h-12 bg-[#6d3f0a] text-white hover:bg-[#9b7e5e]"
+                    className="float-right  h-12 bg-[#6d3f0a] text-white hover:bg-[#9b7e5e] mt-5"
                 >
-                    Thanh Toán
+                    <Link href={`/checkouts/${user._id}`}> Thanh Toán</Link>
                 </Button>
             </div>
         </div>
