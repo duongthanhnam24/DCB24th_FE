@@ -7,13 +7,15 @@ import FormSigUP from "@/components/form/signUp";
 function SignIn() {
     return (
         <div className={style.bg}>
-            <div className={style.children}>
-                <div className={style.formSignIn}>
+            <div className={`${style.children} sm:px-5 overflow-scroll`}>
+                <div
+                    className={`${style.formSignIn} rounded-xl max-w-[700px] h-[500px] sticky top-[25%] bottom-[50%] overflow-scroll sm:w-full sm:top-[10%] `}
+                >
                     <h1 className="text-center py-6 font-bold text-3xl text-white">Sign Up</h1>
                     <FormSigUP />
                     <div className="flex flex-col justify-center items-center py-7 ">
                         <h2 className="text-white">
-                            If you just want to make a purchase right now{" "}
+                            Nếu bạn chỉ muốn dạo chơi{" "}
                             <Link href={"/"} className="text-sky-400">
                                 Go here
                             </Link>
