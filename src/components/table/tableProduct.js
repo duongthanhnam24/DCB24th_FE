@@ -68,7 +68,7 @@ function TableProduct() {
         <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
             <Button
                 variant="destructive"
-                className="  float-right mb-4"
+                className="  float-right mb-4 sm:float-left sm:mr-2"
                 onClick={() => handleSubmit()}
             >
                 Delete All

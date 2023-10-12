@@ -14,7 +14,7 @@ import "react-inner-image-zoom/lib/InnerImageZoom/styles.css";
 import InnerImageZoom from "react-inner-image-zoom";
 function Product({ product }) {
     const [imageUrl, setImageUrl] = useState();
-    const [linkRender, setLink] = useState();
+    const [linkRender, setLink] = useState("");
     function handleClick(value) {
         setImageUrl(value);
     }
@@ -83,7 +83,7 @@ function Product({ product }) {
                     mobileBreakpoint={640}
                     hideHint={false}
                     zoomType="hover"
-                    src={linkRender || product.image[0].img}
+                    src={linkRender || product?.image[0].img}
                     className="w-[630px] h-[930px]  sm:w-[345px] sm:h-[517px] "
                     alt="..."
                 />

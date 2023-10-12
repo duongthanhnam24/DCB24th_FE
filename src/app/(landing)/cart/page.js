@@ -35,7 +35,7 @@ function Cart() {
             </h1>
             <div className="py-[50px] ">
                 <h1 className="text-3xl font-bold">Giỏ Hàng</h1>
-                <table className="w-full text-sm text-left  dark:text-gray-400 table-auto ">
+                <table className="w-full text-sm text-left  dark:text-gray-400 table-auto sm:hidden">
                     <thead>
                         <tr>
                             <th scope="col" className="px-6 py-3 ">
@@ -116,6 +116,40 @@ function Cart() {
                         </tr>
                     </tfoot>
                 </table>
+                {order.orderItems.map((item) => (
+                    <div key={item.product} className="flex">
+                        <img src={item.image} width={100} alt="product" className=" rounded-sm" />
+
+                        <div className="space-y-2 ml-3">
+                            <h2 className=" font-bold text-base">{item.name}</h2>
+                            <p className="">{item.price}đ</p>
+                            <div className="">
+                                <p className="flex space-x-3">
+                                    <Minus onClick={() => changeNumber("decrease", item.product)} />{" "}
+                                    <span className="text-blue-700">{item.amount}</span>{" "}
+                                    <Plus
+                                        onClick={() => changeNumber("increasing", item.product)}
+                                    />
+                                </p>
+                            </div>
+                            <div className="flex space-x-3 items-center">
+                                <p className="">{item.size}</p>
+
+                                <p className=" font-bold">{item.price * item.amount}đ</p>
+                                <div className="">
+                                    <Button
+                                        variant="none"
+                                        onClick={() =>
+                                            dispatch(removeOrder({ productId: item.product }))
+                                        }
+                                    >
+                                        <Trash2 className="text-red-500" />
+                                    </Button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                ))}
                 <div className="h-[100px]">
                     <Button
                         variant="none"

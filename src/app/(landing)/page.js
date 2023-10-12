@@ -25,13 +25,6 @@ export default function Counter() {
                         <h1 className="text-black w-60 sm:text-center">
                             Platform for luxury fashion for buying and selling
                         </h1>
-                        <div className="mt-3 flex sm:flex-col sm:items-center">
-                            <SheetSide catalogue>
-                                <Button className="text-white bg-black border-white border hover:bg-black hover:opacity-70 mr-5 w-30 sm:h-5 sm:bg-transparent">
-                                    Catalogue
-                                </Button>
-                            </SheetSide>
-                        </div>
                     </div>
                 </div>
 

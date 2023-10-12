@@ -52,7 +52,7 @@ function FormAdd() {
     }
     return (
         <>
-            <form className=" flex justify-around text-black">
+            <form className=" flex justify-around text-black sm:flex-col">
                 <div className="flex flex-col space-y-2">
                     <label className=" font-bold text-base" htmlFor="imgOne">
                         Image

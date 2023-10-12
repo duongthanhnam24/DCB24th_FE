@@ -13,12 +13,16 @@ const initialState = {
     paidAt: "",
     isDelivered: false,
     deliveredAt: "",
+    buyNow: {},
 };
 
 export const orderSlice = createSlice({
     name: "order",
     initialState,
     reducers: {
+        buyOne: (state, action) => {
+            state.buyNow = action.payload;
+        },
         addOrder: (state, action) => {
             const { orderItem } = action.payload;
             const itemOder = state?.orderItems?.find((item) => item?.product === orderItem.product);
@@ -55,6 +59,6 @@ export const orderSlice = createSlice({
 });
 
 // Action creators are generated for each case reducer function
-export const { addOrder, removeOrder, increasing, decrease, reset } = orderSlice.actions;
+export const { buyOne, addOrder, removeOrder, increasing, decrease, reset } = orderSlice.actions;
 
 export default orderSlice.reducer;

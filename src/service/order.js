@@ -1,6 +1,6 @@
-export const createOrder = async (order, ship, payment, total, id) => {
+export const createOrder = async (orders, ship, payment, total, id) => {
     const param = await {
-        orderItems: order,
+        orderItems: orders,
         shippingAddress: ship,
         paymentMethod: payment,
         totalPrice: total,

@@ -10,8 +10,11 @@ import { createOrder } from "@/service/order";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { reset } from "@/redux/features/counter/orderSlice";
+import { useSearchParams } from "next/navigation";
 
 function Checkouts({ params }) {
+    const searchParams = useSearchParams();
+    const search = searchParams.get("buy");
     const dispath = useDispatch();
     const user = useSelector((state) => state.auth.user);
     const order = useSelector((state) => state.order);
@@ -38,7 +41,13 @@ function Checkouts({ params }) {
         });
     }
     async function handleSubmit() {
-        const data = await createOrder(order.orderItems, ship, payment, resultTotal, params.id);
+        let orders;
+        if (search === "now") {
+            orders = [order.buyNow];
+        } else {
+            orders = order.orderItems;
+        }
+        const data = await createOrder(orders, ship, payment, resultTotal, params.id);
         if (data.message) {
             toast.error("Bạn quên điền thứ gì đó ?", { theme: "dark", position: "top-center" });
         } else {
@@ -47,17 +56,17 @@ function Checkouts({ params }) {
         }
     }
     return (
-        <div className="container min-h-[800px]">
+        <div className="container min-h-[800px] sm:w-screen sm:px-4">
             <h1 className="py-6 text-[14px] uppercase">
                 <Link className="text-blue-500" href={"/cart"}>
                     Giỏ Hàng
                 </Link>{" "}
                 / Thanh Toán
             </h1>
-            <div className="flex flex-row space-x-10">
-                <div className="w-[60%] space-y-3">
+            <div className="flex flex-row space-x-10 sm:flex-col-reverse sm:space-x-0 ">
+                <div className="w-[60%] space-y-3 sm:w-full">
                     <h2 className="text-xl">Thông tin Thanh Toán</h2>
-                    <div className="w-1/2 flex space-x-2">
+                    <div className="w-1/2 flex space-x-2 sm:w-full">
                         <UserSquare2 size={65} className="" />
                         <div className="grid grid-cols-1 grid-row-2">
                             <p className=" row-span-1">{user?.email}</p>
@@ -97,27 +106,49 @@ function Checkouts({ params }) {
                         />
                     </form>
                 </div>
-                <div className="w-[40%] space-y-3">
-                    <div>
-                        {order.orderItems.map((item) => (
-                            <div
-                                key={item.product}
-                                className="w-1/2 flex border-b-[1px] border-solid border-gray-400 "
-                            >
-                                <img src={item.image} width={50} height={100} alt="..." />
-                                <div className="flex flex-col">
-                                    <h3 className="font-medium">{item.name}</h3>
-                                    <p className="text-gray-500">{item.size}</p>
-                                    <p className="text-gray-500">{item.amount}</p>
+                <div className="w-[40%] space-y-3 sm:w-full">
+                    {search === "now" ? (
+                        <>
+                            <div className="w-1/2 flex border-b-[1px] border-solid border-gray-400 sm:border-none ">
+                                <img src={order.buyNow.image} width={50} height={100} alt="..." />
+                                <div className="flex flex-col ">
+                                    <h3 className="font-medium">{order.buyNow.name}</h3>
+                                    <p className="text-gray-500">{order.buyNow.size}</p>
+                                    <p className="text-gray-500">{order.buyNow.amount}</p>
                                 </div>
-                                <div className="flex justify-center items-center ml-10">
-                                    {item.amount * item.price}đ
+                                <div className="flex justify-center items-center ml-10 ">
+                                    {order.buyNow.amount * order.buyNow.price}đ
                                 </div>
                             </div>
-                        ))}
-                    </div>
+                        </>
+                    ) : (
+                        <>
+                            {order.orderItems.map((item) => (
+                                <div
+                                    key={item.product}
+                                    className="w-1/2 flex border-b-[1px] border-solid border-gray-400 sm:w-screen sm:border-none "
+                                >
+                                    <img src={item.image} width={50} height={100} alt="..." />
+                                    <div className="flex flex-col ">
+                                        <h3 className="font-medium">{item.name}</h3>
+                                        <p className="text-gray-500">{item.size}</p>
+                                        <p className="text-gray-500">{item.amount}</p>
+                                    </div>
+                                    <div className="flex justify-center items-center ml-10 ">
+                                        {item.amount * item.price}đ
+                                    </div>
+                                </div>
+                            ))}
+                        </>
+                    )}
                     <h3>
-                        Tổng Tiền : <span className="float-right font-bold">{resultTotal} đ</span>
+                        Tổng Tiền :{" "}
+                        <span className="float-right font-bold">
+                            {search === "now"
+                                ? order.buyNow.amount * order.buyNow.price
+                                : resultTotal}{" "}
+                            đ
+                        </span>
                     </h3>
                 </div>
             </div>
@@ -164,7 +195,7 @@ function Checkouts({ params }) {
                     </Button>
                 </div>
             </div>
-            <h1>HOẶC</h1>
+            {/* <h1>HOẶC</h1> */}
 
             <ToastContainer />
         </div>

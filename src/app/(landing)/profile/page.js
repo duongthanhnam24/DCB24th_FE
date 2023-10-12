@@ -35,12 +35,12 @@ function Profile() {
             .then((res) => console.log(res));
     }
     return (
-        <div className="container h-[500px]">
+        <div className="container h-[500px] sm:h-[800px] sm:px-4">
             <h1 className="py-[15px] text-[14px]">
                 <Link href={"/"}>HOME</Link>/ ACCOUNT
             </h1>
-            <div className="flex py-[50px]">
-                <div className="w-[20%]">
+            <div className="flex py-[50px] sm:flex-col">
+                <div className="w-[20%] sm:w-screen">
                     <div className="text-[28px]">
                         HELLO
                         <br />
@@ -48,14 +48,14 @@ function Profile() {
                     </div>
                     <div className="flex flex-col">
                         <Link href={"/profile"}>ACCOUNT</Link>
-                        <Link href={"/"}>CART</Link>
+                        <Link href={"/cart"}>CART</Link>
                     </div>
                 </div>
-                <div className=" border-l-[1px] border-slate-900"></div>
-                <div className="w-[80%] py-6 ml-7 max-w-[800px]">
+                <div className=" border-l-[1px] border-slate-900 sm:border-b-[1px] sm:mt-5 sm:w-screen"></div>
+                <div className="w-[80%] py-6 ml-7  sm:w-screen sm:ml-0">
                     {edit ? (
                         <>
-                            <h2 className="text-xl font-bold mb-3">Cập nhật thông tin</h2>
+                            <h2 className="text-xl font-bold mb-3 w-screen">Cập nhật thông tin</h2>
 
                             <form className="flex flex-col">
                                 <label htmlFor="name" className="font-bold">
@@ -65,7 +65,7 @@ function Profile() {
                                     id="name"
                                     name="name"
                                     value={name}
-                                    className="w-[350px] py-1 px-3 ml-3"
+                                    className="w-[350px] py-1 px-3 ml-3 sm:w-[130px]"
                                     onChange={(e) => setName(e.target.value)}
                                 />
                                 <label htmlFor="email" className="font-bold">
@@ -75,7 +75,7 @@ function Profile() {
                                     id="email"
                                     name="email"
                                     value={email}
-                                    className="w-[350px] py-1 px-3 ml-3"
+                                    className="w-[350px] py-1 px-3 ml-3 sm:w-[230px]"
                                     onChange={(e) => setEmail(e.target.value)}
                                 />
                                 <label htmlFor="phone" className="font-bold">
@@ -85,11 +85,11 @@ function Profile() {
                                     id="phone"
                                     name="phoneNumber"
                                     value={phone}
-                                    className="w-[350px] py-1 px-3 ml-3"
+                                    className="w-[350px] py-1 px-3 ml-3 sm:w-[130px]"
                                     onChange={(e) => setPhone(e.target.value)}
                                 />
                                 <Button
-                                    className=" float-right w-[60px] mt-3 "
+                                    className=" float-right w-[60px] mt-3 sm:float-left"
                                     onClick={() => hanldleSubmit()}
                                 >
                                     Submit
@@ -112,7 +112,7 @@ function Profile() {
                                 <div className="text-[14px] leading-10">{user?.phoneNumber}</div>
                             </div>
                             <Button
-                                className="float-right"
+                                className="float-right sm:float-left"
                                 onClick={(e) => {
                                     setEdit(true);
                                     e.preventDefault();

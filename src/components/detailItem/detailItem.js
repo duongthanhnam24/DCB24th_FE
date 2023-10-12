@@ -7,7 +7,7 @@ import { DialogDemo } from "../dialog/dialog";
 import { useSelector } from "react-redux";
 import { useRouter } from "next/navigation";
 import { useDispatch } from "react-redux";
-import { addOrder } from "@/redux/features/counter/orderSlice";
+import { addOrder, buyOne } from "@/redux/features/counter/orderSlice";
 
 function DetailItem({ product }) {
     const order = useSelector((state) => state.order);
@@ -43,17 +43,38 @@ function DetailItem({ product }) {
             }
         }
     }
-    function setStorage() {}
+    async function handleBuyNow() {
+        let priceString = product.price;
+        let numberPrice = parseFloat(priceString.replace(/₫|,/g, ""));
+        if (!user) {
+            router.push("/signin");
+        } else if (typeBtn === true || typeBtn === false) {
+            setTypeBtn(false);
+        } else {
+            dispatch(
+                buyOne({
+                    name: product.name,
+                    size: typeBtn,
+                    amount: count,
+                    image: product.image[0].img,
+                    price: numberPrice,
+                    product: product._id,
+                })
+            );
+            router.push(`/checkouts/${user._id}?buy=now`);
+        }
+    }
     return (
         <div className="relative flex pt-16 sm:flex-col items-center">
             <Product product={product} />
             <div className="w-1/4 sm:w-screen px-5">
                 <div>
-                    <h1 className="text-2xl font-bold mb-6 sm:mt-4">{product.name}</h1>
+                    <h1 className="text-2xl font-bold mb-6 sm:mt-4">{product?.name}</h1>
                     <span className="text-base ">Thương Hiệu : DCB24th</span>
-                    <h2 className="text-3xl my-10 font-bold">{product.price}</h2>
+                    <h2 className="text-3xl my-10 font-bold">{product?.price}</h2>
                 </div>
                 <ButtonSize product={product} typeBtn={typeBtn} setTypeBtn={setTypeBtn} />
+                {typeBtn === false && <span className="text-red-500">Hãy chọn size cho bạn</span>}
                 <div>
                     <DialogDemo />
                 </div>
@@ -73,17 +94,17 @@ function DetailItem({ product }) {
                         className="border border-solid border-black h-12 "
                         onClick={() => {
                             handleBuyProduct();
-                            setStorage();
                         }}
                     >
                         Thêm vào Giỏ Hàng
                     </Button>
-                    {typeBtn === false && (
-                        <span className="text-red-500">Hãy chọn size cho bạn</span>
-                    )}
+
                     <Button
                         className=" h-12 bg-[#6d3f0a] text-white hover:bg-[#9b7e5e] mt-4"
                         variant="none"
+                        onClick={() => {
+                            handleBuyNow();
+                        }}
                     >
                         Mua Ngay
                     </Button>
@@ -109,7 +130,7 @@ function ButtonSize({ product, typeBtn, setTypeBtn }) {
     return (
         <div className="">
             <p className="font-bold my-2">Kích thước {typeBtn}</p>
-            {product.size.map((size) => (
+            {product?.size.map((size) => (
                 <Button
                     key={size}
                     variant="outline"

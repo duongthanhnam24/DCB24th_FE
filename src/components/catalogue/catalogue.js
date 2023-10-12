@@ -1,6 +1,5 @@
-import { Button } from "../ui/button";
-import { Input } from "../ui/input";
-import { Label } from "../ui/label";
+import Link from "next/link";
+
 import {
     Sheet,
     SheetClose,
@@ -20,30 +19,28 @@ export function SheetSide({ children }) {
         <div>
             <Sheet key={side}>
                 <SheetTrigger asChild>{children}</SheetTrigger>
-                <SheetContent side={side} className="bg-black">
+                <SheetContent side={side} className="bg-[#6d3f0a]">
                     <SheetHeader>
                         <SheetTitle className="text-white">Catalogue</SheetTitle>
                         <SheetDescription>You can find whatever you want</SheetDescription>
                     </SheetHeader>
                     <div className="grid gap-4 py-4">
                         <div className="grid grid-cols-4 items-center gap-4">
-                            <Label htmlFor="name" className="text-right text-white">
-                                Name
-                            </Label>
-                            <Input id="name" value="Pedro Duarte" className="col-span-3" />
+                            <Link className="text-white" href={"/man"}>
+                                <SheetClose>Cho Nam</SheetClose>
+                            </Link>
                         </div>
                         <div className="grid grid-cols-4 items-center gap-4">
-                            <Label htmlFor="username" className="text-right text-white">
-                                Username
-                            </Label>
-                            <Input id="username" value="@peduarte" className="col-span-3" />
+                            <Link className="text-white" href={"/woman"}>
+                                <SheetClose>Cho Nữ</SheetClose>
+                            </Link>
+                        </div>
+                        <div className="grid grid-cols-4 items-center gap-4">
+                            <Link className="text-white" href={"/kids"}>
+                                <SheetClose>Cho trẻ em</SheetClose>
+                            </Link>
                         </div>
                     </div>
-                    <SheetFooter>
-                        <SheetClose asChild>
-                            <Button type="submit">Save changes</Button>
-                        </SheetClose>
-                    </SheetFooter>
                 </SheetContent>
             </Sheet>
         </div>

@@ -19,7 +19,7 @@ import { useSelector } from "react-redux";
 import { NavigationMenuDemo } from "./headernavbar";
 import InputHeader from "./inputheader";
 import style from "./header.module.css";
-import Cart from "../cart/cart";
+import { SheetSide } from "../catalogue/catalogue";
 function Header() {
     const router = useRouter();
     const user = useSelector((state) => state.auth.user);
@@ -29,9 +29,11 @@ function Header() {
     }
     return (
         <header className="flex flex-row justify-between items-center fixed z-50 inset-x-0 top-0 px-14 bg-white rounded-b-sm h-14 box-sd  sm:justify-between sm:w-screen sm:px-3 md:w-screen animate-fade-right animate-once animate-duration-1000">
-            {/* <div>
-                <Menu />
-            </div> */}
+            <div className="hidden sm:block">
+                <SheetSide catalogue>
+                    <Menu className=" cursor-pointer" />
+                </SheetSide>
+            </div>
 
             <Link href="/">
                 <h1 className="font-pacifico text-2xl text-[#6d3f0a] font-bold sm:text-xl">
