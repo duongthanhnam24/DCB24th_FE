@@ -29,7 +29,7 @@ function Cart() {
         }
     };
     return (
-        <div className="container min-h-[1000px]">
+        <div className="container min-h-[1000px] sm:px-5">
             <h1 className="py-6 text-[14px] uppercase">
                 <Link href={"/"}>TRANG CHỦ</Link> / Giỏ Hàng Của Bạn - DCB24th
             </h1>
@@ -116,40 +116,57 @@ function Cart() {
                         </tr>
                     </tfoot>
                 </table>
-                {order.orderItems.map((item) => (
-                    <div key={item.product} className="flex">
-                        <img src={item.image} width={100} alt="product" className=" rounded-sm" />
+                <div className="hidden sm:flex  sm:flex-col">
+                    {order.orderItems.map((item) => (
+                        <div key={item.product} className=" sm:flex ">
+                            <img
+                                src={item.image}
+                                width={100}
+                                alt="product"
+                                className=" rounded-sm"
+                            />
 
-                        <div className="space-y-2 ml-3">
-                            <h2 className=" font-bold text-base">{item.name}</h2>
-                            <p className="">{item.price}đ</p>
-                            <div className="">
-                                <p className="flex space-x-3">
-                                    <Minus onClick={() => changeNumber("decrease", item.product)} />{" "}
-                                    <span className="text-blue-700">{item.amount}</span>{" "}
-                                    <Plus
-                                        onClick={() => changeNumber("increasing", item.product)}
-                                    />
-                                </p>
-                            </div>
-                            <div className="flex space-x-3 items-center">
-                                <p className="">{item.size}</p>
-
-                                <p className=" font-bold">{item.price * item.amount}đ</p>
+                            <div className="space-y-2 ml-3">
+                                <h2 className=" font-bold text-base">{item.name}</h2>
+                                <p className="">{item.price}đ</p>
                                 <div className="">
-                                    <Button
-                                        variant="none"
-                                        onClick={() =>
-                                            dispatch(removeOrder({ productId: item.product }))
-                                        }
-                                    >
-                                        <Trash2 className="text-red-500" />
-                                    </Button>
+                                    <p className="flex space-x-3">
+                                        <Minus
+                                            onClick={() => changeNumber("decrease", item.product)}
+                                        />{" "}
+                                        <span className="text-blue-700">{item.amount}</span>{" "}
+                                        <Plus
+                                            onClick={() => changeNumber("increasing", item.product)}
+                                        />
+                                    </p>
+                                </div>
+                                <div className="flex space-x-3 items-center">
+                                    <p className="">{item.size}</p>
+
+                                    <p className=" font-bold">{item.price * item.amount}đ</p>
+                                    <div className="">
+                                        <Button
+                                            variant="none"
+                                            onClick={() =>
+                                                dispatch(removeOrder({ productId: item.product }))
+                                            }
+                                        >
+                                            <Trash2 className="text-red-500" />
+                                        </Button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
+                    ))}
+                    <div>
+                        <p>Note</p>
+                        <h2 colSpan={6} className="text-right">
+                            Tổng tiền :
+                            <span className="font-medium text-2xl"> {resultTotal} đ</span>
+                        </h2>
                     </div>
-                ))}
+                </div>
+
                 <div className="h-[100px]">
                     <Button
                         variant="none"
