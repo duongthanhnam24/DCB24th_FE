@@ -9,8 +9,8 @@ function TbContent() {
     const search = searchParams.get("table");
 
     return (
-        <div className="flex py-[50px] sm:flex-col">
-            <div className="w-[20%] sm:w-screen">
+        <div className="flex py-[50px] smt:flex-col">
+            <div className="w-[20%] smt:w-screen">
                 <div>
                     <Link
                         href={"/management?table=product"}
@@ -28,7 +28,7 @@ function TbContent() {
                     </Link>
                 </div>
             </div>
-            <div className=" border-l-[1px] border-slate-900 sm:border-b-[1px] sm:mt-5"></div>
+            <div className=" border-l-[1px] border-slate-900 smt:border-b-[1px] smt:mt-5"></div>
             <Content search={search} />
             <ToastContainer />
         </div>

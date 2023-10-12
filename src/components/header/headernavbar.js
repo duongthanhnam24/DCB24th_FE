@@ -24,39 +24,40 @@ export function NavigationMenuDemo({ children, her, boy, kid, className }) {
                         {children}
                     </NavigationMenuTrigger>
                     <NavigationMenuContent className="w-[300px]">
-                        <div
-                            className={`flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md ${className}`}
-                        >
-                            <ul className=" grid gap-3 p-6 md:w-[400px] lg:w-[500px]  lg:grid-cols-[.75fr_1fr] 2xl:grid-cols-[.75fr_1fr]">
-                                <li className="row-span-3 ">
+                        <ul className=" grid gap-3 p-6 md:w-[400px] lg:w-[500px]  lg:grid-cols-[.75fr_1fr] ">
+                            <li className="row-span-3 ">
+                                <div
+                                    className={`flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md ${className}`}
+                                >
                                     <NavigationMenuLink asChild></NavigationMenuLink>
-                                </li>
-                                <ListItem
-                                    href={"/"}
-                                    title="Introduction"
-                                    className="group hover:bg-[#8f5928] cursor-pointer"
-                                    subText="Best Sell"
-                                >
-                                    Những sản phẩm bán chạy nhất
-                                </ListItem>
-                                <ListItem
-                                    href="/"
-                                    title="Introduction"
-                                    className="group hover:bg-[#8f5928] cursor-pointer"
-                                    subText="New Products"
-                                >
-                                    Thiết kế mới trong năm nay
-                                </ListItem>
-                                <ListItem
-                                    href={hrefs}
-                                    title="Introduction"
-                                    className="group hover:bg-[#8f5928] cursor-pointer"
-                                    subText="All Products"
-                                >
-                                    Tất cả sản Phẩm
-                                </ListItem>
-                            </ul>
-                        </div>
+                                </div>
+                            </li>
+
+                            <ListItem
+                                href={hrefs}
+                                title="Introduction"
+                                className="group hover:bg-[#8f5928] cursor-pointer"
+                                subText="All Products"
+                            >
+                                Tất cả sản Phẩm
+                            </ListItem>
+                            <ListItem
+                                href={hrefs}
+                                title="Introduction"
+                                className="group hover:bg-[#8f5928] cursor-pointer"
+                                subText="Best Sell"
+                            >
+                                Những sản phẩm bán chạy nhất
+                            </ListItem>
+                            <ListItem
+                                href={hrefs}
+                                title="Introduction"
+                                className="group hover:bg-[#8f5928] cursor-pointer"
+                                subText="New Products"
+                            >
+                                Thiết kế mới trong năm nay
+                            </ListItem>
+                        </ul>
                     </NavigationMenuContent>
                 </NavigationMenuItem>
             </NavigationMenuList>

@@ -65,7 +65,7 @@ function FormUpdate({ id, product }) {
     }
     return (
         <>
-            <form className=" flex justify-around text-black sm:flex-col">
+            <form className=" flex justify-around text-black smt:flex-col">
                 <div className="flex flex-col space-y-2">
                     <label className=" font-bold text-base" htmlFor="imgOne">
                         Image

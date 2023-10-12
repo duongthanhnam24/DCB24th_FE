@@ -41,9 +41,9 @@ function SliderItem({ children, newItem, bestItem }) {
     if (isLoading) return <Loading />;
     return (
         <div className="mt-10 ">
-            <h2 className="text-center text-4xl font-pacifico font-bold sm:">{children}</h2>
+            <h2 className="text-center text-4xl font-pacifico font-bold smt:">{children}</h2>
             <div className="flex items-center">
-                <button className={`${classControl.BtnBack} bg-[#6d3f0a] text-white sm:ml-2`}>
+                <button className={`${classControl.BtnBack} bg-[#6d3f0a] text-white smt:ml-2`}>
                     <ChevronLeft />
                 </button>
                 <Swiper
@@ -79,7 +79,7 @@ function SliderItem({ children, newItem, bestItem }) {
                                         <img
                                             src={item.image[0].img}
                                             alt="..."
-                                            className="rounded-xl box-sd  w-[321px] h-[481px] sm:w-[277px] sm:h-[426px]"
+                                            className="rounded-xl box-sd  w-[321px] h-[481px] smt:w-[277px] smt:h-[426px]"
                                         />
 
                                         <div className="text-center ">
@@ -99,7 +99,7 @@ function SliderItem({ children, newItem, bestItem }) {
                         );
                     })}
                 </Swiper>
-                <button className={`${classControl.BtnNext} bg-[#6d3f0a] text-white sm:mr-2`}>
+                <button className={`${classControl.BtnNext} bg-[#6d3f0a] text-white smt:mr-2`}>
                     <ChevronRight />
                 </button>
             </div>

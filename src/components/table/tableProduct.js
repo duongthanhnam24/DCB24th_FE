@@ -65,10 +65,10 @@ function TableProduct() {
         window.location.reload();
     }
     return (
-        <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
+        <div className="relative overflow-x-auto shadow-md smt:rounded-lg">
             <Button
                 variant="destructive"
-                className="  float-right mb-4 sm:float-left sm:mr-2"
+                className="  float-right mb-4 smt:float-left smt:mr-2"
                 onClick={() => handleSubmit()}
             >
                 Delete All

@@ -29,13 +29,13 @@ function Cart() {
         }
     };
     return (
-        <div className="container min-h-[1000px] sm:px-5">
+        <div className="container min-h-[1000px] smt:px-5">
             <h1 className="py-6 text-[14px] uppercase">
                 <Link href={"/"}>TRANG CHỦ</Link> / Giỏ Hàng Của Bạn - DCB24th
             </h1>
             <div className="py-[50px] ">
                 <h1 className="text-3xl font-bold">Giỏ Hàng</h1>
-                <table className="w-full text-sm text-left  dark:text-gray-400 table-auto sm:hidden">
+                <table className="w-full text-sm text-left  dark:text-gray-400 table-auto smt:hidden">
                     <thead>
                         <tr>
                             <th scope="col" className="px-6 py-3 ">
@@ -116,9 +116,9 @@ function Cart() {
                         </tr>
                     </tfoot>
                 </table>
-                <div className="hidden sm:flex  sm:flex-col">
+                <div className="hidden smt:flex  smt:flex-col">
                     {order.orderItems.map((item) => (
-                        <div key={item.product} className=" sm:flex ">
+                        <div key={item.product} className=" smt:flex ">
                             <img
                                 src={item.image}
                                 width={100}

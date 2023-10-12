@@ -20,7 +20,7 @@ function TableOrder() {
     }, []);
 
     return (
-        <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
+        <div className="relative overflow-x-auto shadow-md smt:rounded-lg">
             <DownloadTableExcel
                 filename="users table"
                 sheet="users"

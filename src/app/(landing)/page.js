@@ -21,8 +21,8 @@ export default function Counter() {
                 {/* slider */}
                 <div className="flex justify-center items-center relative animate-fade-down animate-once animate-duration-1500">
                     <Image src={slide} alt="..." className={`${style.slide} `} />
-                    <div className="absolute flex flex-col bottom-0 left-0 p-10  animate-fade-down animate-duration-[1600ms] animate-ease-in-out sm:pb-2 sm:w-screen sm:items-center">
-                        <h1 className="text-black w-60 sm:text-center">
+                    <div className="absolute flex flex-col bottom-0 left-0 p-10  animate-fade-down animate-duration-[1600ms] animate-ease-in-out smt:pb-2 smt:w-screen smt:items-center">
+                        <h1 className="text-black w-60 smt:text-center">
                             Platform for luxury fashion for buying and selling
                         </h1>
                     </div>
@@ -32,33 +32,33 @@ export default function Counter() {
                 <div>
                     <div className="flex flex-row justify-evenly  py-6 text-[#6d3f0a] animate-fade animate-duration-[2000ms] animate-ease-in-out">
                         <div className="font-pacifico ">
-                            <h2 className="text-3xl font-bold sm:text-xl sm:font-medium">
+                            <h2 className="text-3xl font-bold smt:text-xl smt:font-medium">
                                 DCB24th
                             </h2>
                         </div>
                         <div className="font-pacifico ">
-                            <h2 className="text-3xl font-bold sm:text-xl sm:font-medium">
+                            <h2 className="text-3xl font-bold smt:text-xl smt:font-medium">
                                 DCB24th
                             </h2>
                         </div>
                         <div className="font-pacifico ">
-                            <h2 className="text-3xl font-bold sm:text-xl sm:font-medium">
+                            <h2 className="text-3xl font-bold smt:text-xl smt:font-medium">
                                 DCB24th
                             </h2>
                         </div>
-                        <div className="font-pacifico sm:hidden">
-                            <h2 className="text-3xl font-bold sm:text-xl sm:font-medium">
+                        <div className="font-pacifico smt:hidden">
+                            <h2 className="text-3xl font-bold smt:text-xl smt:font-medium">
                                 DCB24th
                             </h2>
                         </div>
-                        <div className="font-pacifico sm:hidden">
-                            <h2 className="text-3xl font-bold sm:text-xl sm:font-medium">
+                        <div className="font-pacifico smt:hidden">
+                            <h2 className="text-3xl font-bold smt:text-xl smt:font-medium">
                                 DCB24th
                             </h2>
                         </div>
                     </div>
                     {/*clothes  */}
-                    <div className="grid grid-cols-2 grid-rows-1 px-10 gap-5 mx-24 sm:flex sm:flex-col sm:mx-0 sm:p-5">
+                    <div className="grid grid-cols-2 grid-rows-1 px-10 gap-5 mx-24 smt:flex smt:flex-col smt:mx-0 smt:p-5">
                         <div className="col-span-1 h-full relative animate-fade-left animate-duration-[2000ms] animate-ease-in-out">
                             <Link href={"/man"}>
                                 <Image
@@ -95,7 +95,7 @@ export default function Counter() {
                 </div>
                 {/* product */}
                 <Suspense fallback={<Loading />}>
-                    <div className="mx-40 sm:mx-0">
+                    <div className="mx-40 smt:mx-0">
                         <SliderItem newItem>Sản Phẩm Mới</SliderItem>
                         <SliderItem bestItem>Sản Phẩm Bán Chạy</SliderItem>
                     </div>

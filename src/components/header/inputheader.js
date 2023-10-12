@@ -24,7 +24,7 @@ function InputHeader() {
     }, [debounce]);
     const { Products } = data;
     return (
-        <div className="flex group w-60 sm:hidden md:flex">
+        <div className="flex group w-60 smt:hidden md:flex">
             <div
                 className={` relative  flex w-full border  items-center mr-8 rounded-lg outline-1 outline-gray-600 group-hover:outline md:w-[150px] ${style.search}`}
             >

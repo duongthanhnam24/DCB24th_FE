@@ -7,9 +7,9 @@ import FormSigUP from "@/components/form/signUp";
 function SignIn() {
     return (
         <div className={style.bg}>
-            <div className={`${style.children} sm:px-5 overflow-scroll`}>
+            <div className={`${style.children} smt:px-5 overflow-scroll`}>
                 <div
-                    className={`${style.formSignIn} rounded-xl max-w-[700px] h-[500px] sticky top-[25%] bottom-[50%] overflow-scroll sm:w-full sm:top-[10%] `}
+                    className={`${style.formSignIn} rounded-xl max-w-[700px] h-[500px] sticky top-[25%] bottom-[50%] overflow-scroll smt:w-full smt:top-[10%] `}
                 >
                     <h1 className="text-center py-6 font-bold text-3xl text-white">Sign Up</h1>
                     <FormSigUP />

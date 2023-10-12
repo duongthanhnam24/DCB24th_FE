@@ -24,8 +24,8 @@ function Product({ product }) {
     }, [imageUrl]);
 
     return (
-        <div className="w-3/4 flex sm:w-screen sm:flex-col-reverse sm:items-center">
-            <div className="flex flex-col items-center sm:flex-row">
+        <div className="w-3/4 flex smt:w-screen smt:flex-col-reverse smt:items-center">
+            <div className="flex flex-col items-center smt:flex-row">
                 <button className="slider__prev bg-[#6d3f0a] text-white">
                     <ChevronUp />
                 </button>
@@ -49,7 +49,7 @@ function Product({ product }) {
                         1275: { slidesPerView: 3, direction: "vertical" },
                     }}
                     slidesPerView={3}
-                    className="h-[900px] w-[200px] m-0 sm:h-[150px] sm:w-[300px] "
+                    className="h-[900px] w-[200px] m-0 smt:h-[150px] smt:w-[300px] "
                 >
                     {product?.image?.map((link, i) => (
                         <SwiperSlide
@@ -69,7 +69,7 @@ function Product({ product }) {
                                 src={link?.img}
                                 onClick={() => handleClick(link?.img)}
                                 alt="..."
-                                className="sm:w-[100px] sm:h-[150px]"
+                                className="smt:w-[100px] smt:h-[150px]"
                             />
                         </SwiperSlide>
                     ))}
@@ -78,13 +78,13 @@ function Product({ product }) {
                     <ChevronDown />
                 </button>
             </div>
-            <div className="ml-4 sm:ml-0">
+            <div className="ml-4 smt:ml-0">
                 <InnerImageZoom
                     mobileBreakpoint={640}
                     hideHint={false}
                     zoomType="hover"
                     src={linkRender || product?.image[0].img}
-                    className="w-[630px] h-[930px]  sm:w-[345px] sm:h-[517px] "
+                    className="w-[630px] h-[930px]  smt:w-[345px] smt:h-[517px] "
                     alt="..."
                 />
             </div>

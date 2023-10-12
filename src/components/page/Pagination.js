@@ -3,7 +3,7 @@ import { Button } from "../ui/button";
 function Pagination({ setPageUi, pageUi, page, totalPage, countProducts }) {
     return (
         <nav
-            className="flex items-center justify-between pt-4 sm:flex-col sm:space-y-4"
+            className="flex items-center justify-between pt-4 smt:flex-col smt:space-y-4"
             aria-label="Table navigation"
         >
             <span className="text-sm font-normal text-gray-500 dark:text-gray-400 ">

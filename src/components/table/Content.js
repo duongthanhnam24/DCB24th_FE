@@ -6,7 +6,7 @@ import TableOrder from "./tableOrder";
 
 function Content({ search }) {
     return (
-        <div className="w-[80%] py-6 ml-7 space-y-4 sm:w-screen sm:ml-0">
+        <div className="w-[80%] py-6 ml-7 space-y-4 smt:w-screen smt:ml-0">
             {search === "product" && (
                 <>
                     <h1 className="font-bold text-xl text-center">Tất cả sản phẩm</h1>

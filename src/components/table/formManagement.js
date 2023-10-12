@@ -15,7 +15,7 @@ function NewAndUpdateProduct({ children, title, update, id, product, deleted, cr
         <>
             <Dialog className="w-1/3 ">
                 <DialogTrigger asChild>{children}</DialogTrigger>
-                <DialogContent className="border border-solid border-black max-w-[50rem] bg-[#ccc] sm:max-w-[20rem] sm:h-[500px]  sm:overflow-scroll">
+                <DialogContent className="border border-solid border-black max-w-[50rem] bg-[#ccc] smt:max-w-[20rem] smt:h-[500px]  smt:overflow-scroll">
                     <DialogHeader>
                         <DialogTitle>{title}</DialogTitle>
 

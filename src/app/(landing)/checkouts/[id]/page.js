@@ -56,17 +56,17 @@ function Checkouts({ params }) {
         }
     }
     return (
-        <div className="container min-h-[800px] sm:w-screen sm:px-4">
+        <div className="container min-h-[800px] smt:w-screen smt:px-4">
             <h1 className="py-6 text-[14px] uppercase">
                 <Link className="text-blue-500" href={"/cart"}>
                     Giỏ Hàng
                 </Link>{" "}
                 / Thanh Toán
             </h1>
-            <div className="flex flex-row space-x-10 sm:flex-col-reverse sm:space-x-0 ">
-                <div className="w-[60%] space-y-3 sm:w-full">
+            <div className="flex flex-row space-x-10 smt:flex-col-reverse smt:space-x-0 ">
+                <div className="w-[60%] space-y-3 smt:w-full">
                     <h2 className="text-xl">Thông tin Thanh Toán</h2>
-                    <div className="w-1/2 flex space-x-2 sm:w-full">
+                    <div className="w-1/2 flex space-x-2 smt:w-full">
                         <UserSquare2 size={65} className="" />
                         <div className="grid grid-cols-1 grid-row-2">
                             <p className=" row-span-1">{user?.email}</p>
@@ -106,10 +106,10 @@ function Checkouts({ params }) {
                         />
                     </form>
                 </div>
-                <div className="w-[40%] space-y-3 sm:w-full">
+                <div className="w-[40%] space-y-3 smt:w-full">
                     {search === "now" ? (
                         <>
-                            <div className="w-1/2 flex border-b-[1px] border-solid border-gray-400 sm:border-none ">
+                            <div className="w-1/2 flex border-b-[1px] border-solid border-gray-400 smt:border-none ">
                                 <img src={order.buyNow.image} width={50} height={100} alt="..." />
                                 <div className="flex flex-col ">
                                     <h3 className="font-medium">{order.buyNow.name}</h3>
@@ -126,7 +126,7 @@ function Checkouts({ params }) {
                             {order.orderItems.map((item) => (
                                 <div
                                     key={item.product}
-                                    className="w-1/2 flex border-b-[1px] border-solid border-gray-400 sm:w-screen sm:border-none "
+                                    className="w-1/2 flex border-b-[1px] border-solid border-gray-400 smt:w-screen smt:border-none "
                                 >
                                     <img src={item.image} width={50} height={100} alt="..." />
                                     <div className="flex flex-col ">

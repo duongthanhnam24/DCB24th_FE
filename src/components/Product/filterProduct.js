@@ -42,15 +42,15 @@ function ListProduct({ param }) {
         return notFound();
     }
     return (
-        <div className="w-3/4 sm:w-screen">
+        <div className="w-3/4 smt:w-screen">
             <div className="mt-[40px] mb-[20px] text-base flex space-x-7">
-                <div className="flex sm:hidden">
+                <div className="flex smt:hidden">
                     <AlignJustify />
                     <span className="ml-2">Sắp xếp theo</span>
                 </div>
                 <div className="">
-                    <form className="flex flex-row bg-[#f0eaea] space-x-4 sm:flex-col">
-                        <div className="space-x-1 sm:ml-[16px]">
+                    <form className="flex flex-row bg-[#f0eaea] space-x-4 smt:flex-col">
+                        <div className="space-x-1 smt:ml-[16px]">
                             <input
                                 type="radio"
                                 className="_id"
@@ -117,7 +117,7 @@ function ListProduct({ param }) {
                     </form>
                 </div>
             </div>
-            <div className="grid gird-row-3 grid-cols-3 gap-4 sm:px-2 sm:gap-2">
+            <div className="grid gird-row-3 grid-cols-3 gap-4 smt:px-2 smt:gap-2">
                 {Products?.map((product) => {
                     return (
                         <Link href={`/${product.Ob}/${product._id}`} key={product._id}>
@@ -125,13 +125,13 @@ function ListProduct({ param }) {
                                 <img
                                     src={product.image[0].img}
                                     alt="..."
-                                    className="w-[319px] h-[479px] rounded-xl box-sd img sm:w-[150px] sm:h-[200px]"
+                                    className="w-[319px] h-[479px] rounded-xl box-sd img smt:w-[150px] smt:h-[200px]"
                                 />
                                 <div className="text-center ">
-                                    <h2 className="m-3 text-gray-500 cursor-pointer text-base hover:text-black sm:text-xs">
+                                    <h2 className="m-3 text-gray-500 cursor-pointer text-base hover:text-black smt:text-xs">
                                         {product.name}
                                     </h2>
-                                    <p className="mt-4 font-bold sm:text-xs">{product.price}</p>
+                                    <p className="mt-4 font-bold smt:text-xs">{product.price}</p>
                                 </div>
                                 <div className="middle">
                                     <Button className=" bg-[#6d3f0a]  text-white hover:bg-[#9b7e5e]">
