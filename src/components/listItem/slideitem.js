@@ -79,7 +79,7 @@ function SliderItem({ children, newItem, bestItem }) {
                                         <img
                                             src={item.image[0].img}
                                             alt="..."
-                                            className="rounded-xl box-sd  w-[321px] h-[481px] smt:w-[277px] smt:h-[426px]"
+                                            className="rounded-xl box-sd  w-[321px] h-[481px] smt:w-[277px] smt:h-[426px] object-cover "
                                         />
 
                                         <div className="text-center ">

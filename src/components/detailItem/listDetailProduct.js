@@ -69,7 +69,7 @@ function Product({ product }) {
                                 src={link?.img}
                                 onClick={() => handleClick(link?.img)}
                                 alt="..."
-                                className="smt:w-[100px] smt:h-[150px]"
+                                className="smt:w-[100px] smt:h-[150px] object-cover "
                             />
                         </SwiperSlide>
                     ))}
