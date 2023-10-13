@@ -56,15 +56,15 @@ function Checkouts({ params }) {
         }
     }
     return (
-        <div className="container min-h-[800px] smt:w-screen smt:px-4">
+        <div className="container min-h-[800px] smt:w-screen smt:px-4 mdt:w-screen">
             <h1 className="py-6 text-[14px] uppercase">
                 <Link className="text-blue-500" href={"/cart"}>
                     Giỏ Hàng
                 </Link>{" "}
                 / Thanh Toán
             </h1>
-            <div className="flex flex-row space-x-10 smt:flex-col-reverse smt:space-x-0 ">
-                <div className="w-[60%] space-y-3 smt:w-full">
+            <div className="flex flex-row space-x-10 smt:flex-col-reverse smt:space-x-0  mdt:flex-col-reverse mdt:space-x-0">
+                <div className="w-[60%] space-y-3 smt:w-full mdt:w-full">
                     <h2 className="text-xl">Thông tin Thanh Toán</h2>
                     <div className="w-1/2 flex space-x-2 smt:w-full">
                         <UserSquare2 size={65} className="" />
@@ -106,11 +106,17 @@ function Checkouts({ params }) {
                         />
                     </form>
                 </div>
-                <div className="w-[40%] space-y-3 smt:w-full">
+                <div className="w-[40%] space-y-3 smt:w-full mdt:w-full">
                     {search === "now" ? (
                         <>
-                            <div className="w-1/2 flex border-b-[1px] border-solid border-gray-400 smt:border-none ">
-                                <img src={order.buyNow.image} width={50} height={100} alt="..." />
+                            <div className="w-1/2 flex border-b-[1px] border-solid border-gray-400 smt:border-none mdt:w-full ">
+                                <img
+                                    src={order.buyNow.image}
+                                    width={70}
+                                    height={100}
+                                    alt="..."
+                                    className=" object-cover"
+                                />
                                 <div className="flex flex-col ">
                                     <h3 className="font-medium">{order.buyNow.name}</h3>
                                     <p className="text-gray-500">{order.buyNow.size}</p>
@@ -126,15 +132,21 @@ function Checkouts({ params }) {
                             {order.orderItems.map((item) => (
                                 <div
                                     key={item.product}
-                                    className="w-1/2 flex border-b-[1px] border-solid border-gray-400 smt:w-screen smt:border-none "
+                                    className="w-1/2 flex border-b-[1px] border-solid border-gray-400 smt:w-screen smt:border-none mdt:w-full "
                                 >
-                                    <img src={item.image} width={50} height={100} alt="..." />
+                                    <img
+                                        src={item.image}
+                                        width={80}
+                                        height={90}
+                                        alt="..."
+                                        className="object-cover"
+                                    />
                                     <div className="flex flex-col ">
                                         <h3 className="font-medium">{item.name}</h3>
                                         <p className="text-gray-500">{item.size}</p>
                                         <p className="text-gray-500">{item.amount}</p>
                                     </div>
-                                    <div className="flex justify-center items-center ml-10 ">
+                                    <div className="flex flex-col justify-center items-center ">
                                         {item.amount * item.price}đ
                                     </div>
                                 </div>

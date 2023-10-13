@@ -28,7 +28,7 @@ function Header() {
         localStorage.clear();
     }
     return (
-        <header className="flex flex-row justify-between items-center fixed z-50 inset-x-0 top-0 px-14 bg-white rounded-b-sm h-14 box-sd  smt:justify-between smt:w-screen smt:px-3 mdt:w-screen animate-fade-right animate-once animate-duration-1000">
+        <header className="flex flex-row justify-between items-center fixed z-50 inset-x-0 top-0 px-14 bg-white rounded-b-sm h-14 box-sd  smt:justify-between smt:w-screen smt:px-3 mdt:w-screen lgt:w-screen lgt:px-2  animate-fade-right animate-once animate-duration-1300">
             <div className="hidden smt:block">
                 <SheetSide catalogue>
                     <Menu className=" cursor-pointer" />

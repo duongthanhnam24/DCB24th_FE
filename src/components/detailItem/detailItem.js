@@ -65,9 +65,9 @@ function DetailItem({ product }) {
         }
     }
     return (
-        <div className="relative flex pt-16 smt:flex-col items-center">
+        <div className="relative flex pt-16 items-center smt:flex-col mdt:flex-col  xlt:flex-col">
             <Product product={product} />
-            <div className="w-1/4 smt:w-screen px-5">
+            <div className="w-1/4 smt:w-screen px-5 mdt:w-full xlt:w-full">
                 <div>
                     <h1 className="text-2xl font-bold mb-6 smt:mt-4">{product?.name}</h1>
                     <span className="text-base ">Thương Hiệu : DCB24th</span>

@@ -29,7 +29,7 @@ function Cart() {
         }
     };
     return (
-        <div className="container min-h-[1000px] smt:px-5">
+        <div className="md:container min-h-[1000px] smt:px-5 ">
             <h1 className="py-6 text-[14px] uppercase">
                 <Link href={"/"}>TRANG CHỦ</Link> / Giỏ Hàng Của Bạn - DCB24th
             </h1>
@@ -74,7 +74,7 @@ function Cart() {
                                         width={160}
                                         height={240}
                                         alt="product"
-                                        className=" rounded-sm"
+                                        className=" rounded-sm object-cover"
                                     />
                                 </td>
                                 <td className="px-6 py-4 font-bold text-base">{item.name}</td>

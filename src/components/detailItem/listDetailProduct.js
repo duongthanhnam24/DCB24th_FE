@@ -24,9 +24,9 @@ function Product({ product }) {
     }, [imageUrl]);
 
     return (
-        <div className="w-3/4 flex smt:w-screen smt:flex-col-reverse smt:items-center">
-            <div className="flex flex-col items-center smt:flex-row">
-                <button className="slider__prev bg-[#6d3f0a] text-white">
+        <div className="w-3/4 flex smt:w-screen smt:flex-col-reverse smt:items-center mdt:w-full mdt:flex-col-reverse mdt:items-center xlt:w-full xlt:flex-col-reverse xlt:items-center">
+            <div className="flex flex-col items-center smt:flex-row mdt:flex-row xlt:flex-row">
+                <button className="slider__prev bg-[#6d3f0a] text-white xlt:hidden">
                     <ChevronUp />
                 </button>
                 <Swiper
@@ -45,11 +45,13 @@ function Product({ product }) {
                             spaceBetween: 0,
                             direction: "horizontal",
                         },
-                        740: { slidesPerView: 3, spaceBetween: 20 },
-                        1275: { slidesPerView: 3, direction: "vertical" },
+                        740: { slidesPerView: 3, spaceBetween: 0, direction: "horizontal" },
+                        780: { slidesPerView: 3, spaceBetween: 0, direction: "horizontal" },
+
+                        1280: { slidesPerView: 3, direction: "vertical" },
                     }}
                     slidesPerView={3}
-                    className="h-[900px] w-[200px] m-0 smt:h-[150px] smt:w-[300px] "
+                    className="h-[900px] w-[200px] m-0 smt:h-[150px] smt:w-[300px] mdt:w-[600px] mdt:h-[300px] xlt:w-[800px] xlt:h-[400px]"
                 >
                     {product?.image?.map((link, i) => (
                         <SwiperSlide
@@ -69,12 +71,12 @@ function Product({ product }) {
                                 src={link?.img}
                                 onClick={() => handleClick(link?.img)}
                                 alt="..."
-                                className="smt:w-[100px] smt:h-[150px] object-cover "
+                                className="smt:w-[100px] smt:h-[150px] object-cover mdt:w-[150px] mdt:h-[300px] xlt:w-[200px]  xlt:h-[400px]"
                             />
                         </SwiperSlide>
                     ))}
                 </Swiper>
-                <button className="slider__next bg-[#6d3f0a] text-white">
+                <button className="slider__next bg-[#6d3f0a] text-white xlt:hidden">
                     <ChevronDown />
                 </button>
             </div>

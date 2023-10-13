@@ -13,8 +13,8 @@ async function Girl({ params }) {
     }
     return (
         <div className=" mb-52">
-            <div className="container ">
-                <h1 className="py-6 text-[14px] uppercase smt:px-4">
+            <div className="2xl:container xl:px-9">
+                <h1 className="py-6 text-[14px] uppercase smt:px-4 mdt:px-4">
                     <Link href={"/"}>TRANG CHỦ</Link>/
                     <Link href={`/${params.object}`}> TẤT CẢ SẢN PHẨM</Link>/
                     <span className="font-medium text-[#6d3f0a]">{product?.name}</span>

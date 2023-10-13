@@ -42,7 +42,7 @@ function ListProduct({ param }) {
         return notFound();
     }
     return (
-        <div className="w-3/4 smt:w-screen">
+        <div className="w-3/4 smt:w-screen mdt:w-screen mdt:px-4 lgt:w-screen lgt:px-4">
             <div className="mt-[40px] mb-[20px] text-base flex space-x-7">
                 <div className="flex smt:hidden">
                     <AlignJustify />
@@ -120,7 +120,11 @@ function ListProduct({ param }) {
             <div className="grid gird-row-3 grid-cols-3 gap-4 smt:px-2 smt:gap-2">
                 {Products?.map((product) => {
                     return (
-                        <Link href={`/${product.Ob}/${product._id}`} key={product._id}>
+                        <Link
+                            href={`/${product.Ob}/${product._id}`}
+                            key={product._id}
+                            className=" object-cover"
+                        >
                             <div className=" wrapper ">
                                 <img
                                     src={product.image[0].img}

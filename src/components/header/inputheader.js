@@ -24,14 +24,14 @@ function InputHeader() {
     }, [debounce]);
     const { Products } = data;
     return (
-        <div className="flex group w-60 smt:hidden md:flex">
+        <div className="flex group w-60 smt:hidden mdt:hidden lgt:hidden">
             <div
                 className={` relative  flex w-full border  items-center mr-8 rounded-lg outline-1 outline-gray-600 group-hover:outline md:w-[150px] ${style.search}`}
             >
                 <Input
                     value={result}
                     type="text"
-                    placeholder="search.."
+                    placeholder="Tìm Kiếm ...."
                     className={`h-5 placeholder:italic  text-xs  ${style.input}`}
                     onChange={(e) => {
                         e.target.value = e.target.value.trimStart();
@@ -40,6 +40,7 @@ function InputHeader() {
                 />
                 <Button variant="ghost" type="submit" className="p-1 h-6 w-16 md:w-8">
                     <Search
+                        size={20}
                         className={` text-slate-500 group-hover:text-black focus-visible:text-black ${style.btn}`}
                     />
                 </Button>

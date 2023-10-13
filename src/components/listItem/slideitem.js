@@ -53,7 +53,9 @@ function SliderItem({ children, newItem, bestItem }) {
                     spaceBetween={20}
                     breakpoints={{
                         375: { slidesPerView: 1, spaceBetween: 0 },
-                        740: { slidesPerView: 3, spaceBetween: 20 },
+                        740: { slidesPerView: 2, spaceBetween: 20 },
+                        1000: { slidesPerView: 3, spaceBetween: 20 },
+
                         1275: { slidesPerView: 4 },
                     }}
                     navigation={{
